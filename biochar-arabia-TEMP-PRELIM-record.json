@@ -1,0 +1,124 @@
+{
+  "title": "Biochar Arabia Batch Decision Record",
+  "generatedAt": "2026-09-28T08:29:54.286Z",
+  "model": "Provisional literature-threshold CDI — in validation.",
+  "status": "Development/validation screening aid; not a certification, registry approval, credit issuance, or permanence determination.",
+  "batchMetadata": {
+    "batchId": "TEMP-PRELIM",
+    "operator": "Primary",
+    "measurementDate": "2026-09-28"
+  },
+  "evidenceStatus": {
+    "chemistry": "Preliminary Screen",
+    "raman": "Required · not entered",
+    "overall": "Additional evidence required"
+  },
+  "rawMeasurements": [
+    {
+      "observation": "Primary",
+      "operator": "Primary",
+      "date": "2026-09-28",
+      "values": {
+        "fixedCarbon": 70,
+        "volatileMatter": 20,
+        "hc": 0.3,
+        "oc": 0.15,
+        "raman": null
+      }
+    },
+    {
+      "observation": "Replicate",
+      "operator": "Second",
+      "date": "2026-09-29",
+      "values": {
+        "fixedCarbon": 0,
+        "volatileMatter": 10,
+        "hc": 0.1,
+        "oc": 0.05,
+        "raman": 0.8
+      }
+    }
+  ],
+  "proxyScores": {
+    "fixedCarbon": 85,
+    "volatileMatter": 80,
+    "hc": 85,
+    "oc": 85,
+    "raman": null
+  },
+  "cdi": null,
+  "qaQc": {
+    "status": "Review recommended",
+    "summary": "4 assessed checks outside threshold; 5 not assessed.",
+    "metrics": [
+      {
+        "name": "CV · Fixed Carbon",
+        "value": 141.4213562373095,
+        "threshold": "≤10%",
+        "status": "fail",
+        "detail": "141.4% · above threshold (2 valid observations)."
+      },
+      {
+        "name": "CV · Volatile Matter",
+        "value": 47.14045207910317,
+        "threshold": "≤10%",
+        "status": "fail",
+        "detail": "47.1% · above threshold (2 valid observations)."
+      },
+      {
+        "name": "CV · H/C",
+        "value": 70.71067811865474,
+        "threshold": "≤10%",
+        "status": "fail",
+        "detail": "70.7% · above threshold (2 valid observations)."
+      },
+      {
+        "name": "CV · O/C",
+        "value": 70.71067811865474,
+        "threshold": "≤10%",
+        "status": "fail",
+        "detail": "70.7% · above threshold (2 valid observations)."
+      },
+      {
+        "name": "CV · Raman Iᴅ/Iɢ",
+        "value": null,
+        "threshold": "≤10%",
+        "status": "not-assessed",
+        "detail": "Not assessed · 1 valid observation; at least 2 required."
+      },
+      {
+        "name": "Grade agreement",
+        "value": null,
+        "threshold": "≥85%",
+        "status": "not-assessed",
+        "detail": "Not assessed · 1 complete scored measurement; at least 2 required."
+      },
+      {
+        "name": "Operator difference",
+        "value": null,
+        "threshold": "<5 CDI points",
+        "status": "not-assessed",
+        "detail": "Not assessed · scored measurements from at least 2 distinct operators are required."
+      },
+      {
+        "name": "Day difference",
+        "value": null,
+        "threshold": "<3 CDI points",
+        "status": "not-assessed",
+        "detail": "Not assessed · scored measurements from at least 2 distinct dates are required."
+      },
+      {
+        "name": "ICC",
+        "value": null,
+        "threshold": "≥0.85",
+        "status": "not-assessed",
+        "detail": "Not assessed · requires a suitable multi-batch reliability design; repeats from one batch cannot establish ICC."
+      }
+    ]
+  },
+  "decision": {
+    "type": "Raman Fingerprint",
+    "rationale": "Preliminary screen — additional evidence required. Missing measured input: Raman Iᴅ/Iɢ. No final CDI or grade is calculated.",
+    "nextActionDetail": "Provide measured Raman Iᴅ/Iɢ values; do not substitute estimates."
+  }
+}

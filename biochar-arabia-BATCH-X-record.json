@@ -1,0 +1,122 @@
+{
+  "title": "Biochar Arabia Batch Decision Record",
+  "generatedAt": "2026-09-28T08:29:05.397Z",
+  "model": "Provisional literature-threshold CDI — in validation.",
+  "status": "Development/validation screening aid; not a certification, registry approval, credit issuance, or permanence determination.",
+  "batchMetadata": {
+    "batchId": "BATCH-X",
+    "operator": null,
+    "measurementDate": "2026-09-28"
+  },
+  "evidenceStatus": {
+    "chemistry": "Full CDI",
+    "raman": "Measured",
+    "overall": "All five required proxies entered"
+  },
+  "rawMeasurements": [
+    {
+      "observation": "Primary",
+      "operator": null,
+      "date": "2026-09-28",
+      "values": {
+        "fixedCarbon": 75,
+        "volatileMatter": 18,
+        "hc": 0.42,
+        "oc": 0.18,
+        "raman": 1.1
+      }
+    }
+  ],
+  "proxyScores": {
+    "fixedCarbon": 85,
+    "volatileMatter": 80,
+    "hc": 70,
+    "oc": 70,
+    "raman": 70
+  },
+  "cdi": {
+    "score": 75,
+    "grade": "B",
+    "weights": {
+      "fixedCarbon": 0.2,
+      "volatileMatter": 0.2,
+      "hc": 0.2,
+      "oc": 0.15,
+      "raman": 0.25
+    }
+  },
+  "qaQc": {
+    "status": "Not assessed",
+    "summary": "No QA/QC metric could be assessed from the available data.",
+    "metrics": [
+      {
+        "name": "CV · Fixed Carbon",
+        "value": null,
+        "threshold": "≤10%",
+        "status": "not-assessed",
+        "detail": "Not assessed · 1 valid observation; at least 2 required."
+      },
+      {
+        "name": "CV · Volatile Matter",
+        "value": null,
+        "threshold": "≤10%",
+        "status": "not-assessed",
+        "detail": "Not assessed · 1 valid observation; at least 2 required."
+      },
+      {
+        "name": "CV · H/C",
+        "value": null,
+        "threshold": "≤10%",
+        "status": "not-assessed",
+        "detail": "Not assessed · 1 valid observation; at least 2 required."
+      },
+      {
+        "name": "CV · O/C",
+        "value": null,
+        "threshold": "≤10%",
+        "status": "not-assessed",
+        "detail": "Not assessed · 1 valid observation; at least 2 required."
+      },
+      {
+        "name": "CV · Raman Iᴅ/Iɢ",
+        "value": null,
+        "threshold": "≤10%",
+        "status": "not-assessed",
+        "detail": "Not assessed · 1 valid observation; at least 2 required."
+      },
+      {
+        "name": "Grade agreement",
+        "value": null,
+        "threshold": "≥85%",
+        "status": "not-assessed",
+        "detail": "Not assessed · 1 complete scored measurement; at least 2 required."
+      },
+      {
+        "name": "Operator difference",
+        "value": null,
+        "threshold": "<5 CDI points",
+        "status": "not-assessed",
+        "detail": "Not assessed · scored measurements from at least 2 distinct operators are required."
+      },
+      {
+        "name": "Day difference",
+        "value": null,
+        "threshold": "<3 CDI points",
+        "status": "not-assessed",
+        "detail": "Not assessed · scored measurements from at least 2 distinct dates are required."
+      },
+      {
+        "name": "ICC",
+        "value": null,
+        "threshold": "≥0.85",
+        "status": "not-assessed",
+        "detail": "Not assessed · requires a suitable multi-batch reliability design; repeats from one batch cannot establish ICC."
+      }
+    ]
+  },
+  "decision": {
+    "type": "Expert Review",
+    "rationale": "H/C is the lowest proxy score (70.0 / 100) and the main driver of this screening result. CDI is complete, but QA/QC could not be assessed from the available replicate data.",
+    "nextActionDetail": "Review evidence quality and replicate coverage before proceeding."
+  }
+}

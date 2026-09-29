@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Biochar Arabia — chemistry-informed MRV for traceable, verification-ready biochar evidence.">
+<meta name="theme-color" content="#f7faf8">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<title>Biochar Arabia — From Biochar Batch to Trusted Evidence</title>
+<style>
+:root{
+  --bg:#f7faf8; --ink:#10251f; --muted:#60716b; --emerald:#0d5f4c;
+  --emerald2:#13876b; --navy:#102b38; --gold:#d8ae55; --cyan:#68d5d3;
+  --line:#d9e5e0; --card:#fff; --shadow:0 18px 60px rgba(14,63,51,.10);
+  --radius:24px; --max:1180px; --focus:#176f5a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{
+  margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink);line-height:1.5;
+  background:
+    radial-gradient(circle at 85% 8%,rgba(104,213,211,.16),transparent 28rem),
+    radial-gradient(circle at 4% 22%,rgba(216,174,85,.10),transparent 24rem),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+::selection{background:#cce9df;color:var(--ink)}
+.skip-link{position:fixed;left:16px;top:12px;z-index:100;transform:translateY(-160%);padding:11px 16px;border-radius:999px;background:#fff;color:var(--ink);box-shadow:var(--shadow);font-weight:800}
+.skip-link:focus{transform:translateY(0)}
+.wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald)}
+.eyebrow:before{content:"";width:24px;height:2px;background:var(--gold);border-radius:2px}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(46px,7vw,88px);line-height:.95;letter-spacing:-.055em;max-width:900px;margin-bottom:24px}
+h2{font-size:clamp(34px,4vw,58px);line-height:1;letter-spacing:-.045em;margin-bottom:18px}
+h3{font-size:20px;letter-spacing:-.02em;margin-bottom:10px}
+.lead{font-size:clamp(18px,2vw,24px);line-height:1.45;color:var(--muted);max-width:760px}
+.small{font-size:14px;color:var(--muted)}
+.section{padding:108px 0}.section-tight{padding:78px 0}
+
+nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(18px);background:rgba(247,250,248,.92);border-bottom:1px solid rgba(217,229,224,.8)}
+.nav-row{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em;flex:0 0 auto}
+.brand-logo{display:block;width:164px;height:54px;object-fit:cover;object-position:center;border-radius:8px}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:14px;color:#35524a}
+.nav-links a:not(.btn){transition:color .2s ease}
+.nav-links a:not(.btn):hover{color:var(--emerald)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:13px 19px;font-weight:800;font-size:14px;transition:.25s ease;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--emerald);color:white;box-shadow:0 10px 28px rgba(13,95,76,.2)}
+.btn-primary:hover{transform:translateY(-2px);background:#0a4f40}
+.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.72)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:#b8cec5}
+.arrow{font-size:18px;line-height:1}
+.hamburger{display:none;background:none;border:1px solid var(--line);border-radius:12px;width:44px;height:44px;color:var(--ink);font-size:21px;cursor:pointer}
+
+.hero{min-height:min(820px,calc(100vh - 76px));display:grid;align-items:center;padding:72px 0 90px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.status{margin-top:24px;display:inline-flex;align-items:center;gap:9px;color:#3f5b52;font-size:13px;font-weight:700}
+.status i{width:9px;height:9px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 6px rgba(216,174,85,.14)}
+.hero-visual{min-height:540px;border-radius:36px;position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(8,42,35,.96),rgba(13,95,76,.92) 46%,rgba(16,43,56,.96));box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.12)}
+.hero-visual:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 20%,rgba(104,213,211,.28),transparent 28%),radial-gradient(circle at 76% 78%,rgba(216,174,85,.22),transparent 24%)}
+.gridlines{position:absolute;inset:0;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.65) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.65) 1px,transparent 1px);background-size:42px 42px}
+.journey{position:absolute;inset:58px 48px;display:grid;grid-template-rows:repeat(6,1fr);gap:8px;z-index:2}
+.node{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:center;color:white}
+.icon{width:46px;height:46px;border-radius:14px;border:1px solid rgba(255,255,255,.20);display:grid;place-items:center;background:rgba(255,255,255,.08);color:#b7f0dd;transition:background .25s ease,border-color .25s ease,transform .25s ease}
+.icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.node:nth-child(3n+1) .icon{color:#e8c879}
+.node:nth-child(3n+2) .icon{color:#8ce0d4}
+.node:nth-child(3n) .icon{color:#c0e8da}
+.hero-visual:hover .icon{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.34);transform:translateY(-1px)}
+.node strong{font-size:15px;display:block}.node span{font-size:12px;color:rgba(255,255,255,.65)}
+.pulse{position:absolute;right:34px;top:34px;width:94px;height:94px;border-radius:50%;border:1px solid rgba(104,213,211,.35);animation:pulse 3s infinite ease-in-out}
+.pulse:after{content:"";position:absolute;inset:18px;border:1px solid rgba(216,174,85,.45);border-radius:50%}
+@keyframes pulse{50%{transform:scale(1.08);opacity:.55}}
+
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.metric{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 8px 28px rgba(14,63,51,.05);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.metric:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));transform:scaleX(.22);transform-origin:left;transition:transform .8s ease}
+.metric.is-counting{transform:translateY(-3px);border-color:#b9d7ca;box-shadow:0 16px 38px rgba(14,63,51,.1)}
+.metric.is-counting:before{transform:scaleX(1)}
+.metric b{display:block;font-size:44px;letter-spacing:-.05em;color:var(--emerald);line-height:1}
+.metric strong{display:block;margin:10px 0 5px;font-size:16px}.metric span{font-size:13px;color:var(--muted)}
+
+.editorial-visual{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr);gap:36px;align-items:center;margin-top:38px;padding:22px;border:1px solid var(--line);border-radius:30px;background:rgba(255,255,255,.82);box-shadow:0 14px 42px rgba(14,63,51,.06)}
+.visual-frame{margin:0;position:relative;overflow:hidden;border-radius:22px;background:#eef4f1;border:1px solid rgba(16,43,56,.08)}
+.visual-frame img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.visual-flag{position:absolute;top:14px;left:14px;padding:8px 11px;border-radius:999px;background:rgba(16,37,31,.88);color:#fff;font-size:11px;font-weight:850;letter-spacing:.04em;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.visual-copy{padding:14px 18px 14px 0}
+.visual-copy h3{font-size:clamp(23px,2.4vw,32px);line-height:1.1;letter-spacing:-.035em;margin:10px 0 12px}
+.visual-copy>p{color:var(--muted);font-size:15px}
+.visual-points{display:grid;gap:10px;margin:20px 0 0;padding:0;list-style:none}
+.visual-points li{display:flex;gap:10px;align-items:flex-start;color:#35524a;font-size:14px}
+.visual-points li:before{content:"✓";flex:0 0 21px;width:21px;height:21px;display:grid;place-items:center;border-radius:50%;background:#e8f5f0;color:var(--emerald);font-weight:900;font-size:12px}
+.visual-disclaimer{margin:20px 0 0;padding:12px 14px;border-left:3px solid var(--gold);border-radius:0 12px 12px 0;background:#fbf7eb;color:#66562f;font-size:12px;line-height:1.55}
+
+.flow{margin-top:46px;background:white;border:1px solid var(--line);border-radius:30px;padding:30px;box-shadow:0 14px 44px rgba(14,63,51,.06);overflow:auto}
+.flow-row{display:flex;align-items:center;min-width:900px}.flow-item{flex:1;text-align:center;padding:18px 12px}
+.flow-item .dot{width:64px;height:64px;border-radius:20px;margin:0 auto 14px;display:grid;place-items:center;background:linear-gradient(145deg,#edf7f3,#dff0ea);color:var(--emerald);font-weight:900;border:1px solid #cee3da}
+.flow-item strong{font-size:14px}.flow-arrow{color:#83a399;font-size:26px}
+
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.platform-card{position:relative;overflow:hidden;min-height:310px;border-radius:28px;padding:28px;background:linear-gradient(180deg,#fff,#f5faf8);border:1px solid var(--line);transition:.25s ease}
+.platform-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.kicker{font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:900;color:var(--emerald)}
+.platform-card p{color:var(--muted);font-size:14px;max-width:280px}
+.mini-viz{position:absolute;left:28px;right:28px;bottom:28px;height:92px;border-radius:18px;background:linear-gradient(180deg,rgba(104,213,211,.13),rgba(13,95,76,.04));border:1px solid #d9eae4}
+.mini-viz:after{content:"";position:absolute;left:14px;right:14px;bottom:18px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--emerald) 0 32%,var(--cyan) 32% 66%,var(--gold) 66%)}
+
+.value-band{background:linear-gradient(135deg,var(--navy),#0e4337 60%,#0d5f4c);color:white;border-radius:34px;padding:56px;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center;box-shadow:var(--shadow)}
+.value-band p{color:rgba(255,255,255,.72)}.value-list{display:grid;gap:12px}
+.value-item{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 20px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(255,255,255,.05)}
+.value-item b{font-size:20px}.value-item span{font-size:13px;color:rgba(255,255,255,.66)}
+
+.final{text-align:center;padding:118px 0 90px}
+.final h2{max-width:900px;margin:0 auto 22px}.final p{max-width:680px;margin:0 auto 30px;color:var(--muted);font-size:18px}
+.final-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.recognition-strip{padding:42px 0 38px;border-top:1px solid rgba(217,229,224,.9);background:linear-gradient(180deg,rgba(236,246,241,.72),rgba(247,250,248,.4));text-align:center}
+.recognition-inner{max-width:720px;margin:auto}
+.recognition-label{margin-bottom:10px;color:var(--emerald);font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.recognition-title{margin:0;color:var(--navy);font-size:clamp(17px,2vw,22px);font-weight:800;letter-spacing:-.02em}
+.recognition-copy{margin:8px auto 0;max-width:560px;color:var(--muted);font-size:12px;line-height:1.6}
+
+
+/* ENHANCED PLATFORM */
+.platform-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:36px}
+.platform-intro .lead{margin-bottom:0}
+.platform-intro-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.science-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.science-card{
+  position:relative;min-height:220px;padding:26px;border-radius:24px;background:#fff;
+  border:1px solid var(--line);cursor:pointer;transition:.28s ease;overflow:hidden;
+  box-shadow:0 8px 26px rgba(14,63,51,.04)
+}
+.science-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#bfd7cd}
+.science-card.active{border-color:var(--emerald);box-shadow:0 18px 52px rgba(13,95,76,.13)}
+.science-card.active:after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold))
+}
+.science-card .index{font-size:12px;font-weight:900;letter-spacing:.14em;color:var(--gold)}
+.science-card h3{font-size:23px;margin:10px 0 8px}
+.science-card p{font-size:14px;color:var(--muted);margin-bottom:18px}
+.card-action{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:850;color:var(--emerald)}
+.card-action span{transition:.2s ease}.science-card:hover .card-action span{transform:translateX(4px)}
+.platform-stage{
+  margin-top:18px;display:grid;grid-template-columns:1.04fr .96fr;gap:18px;
+  background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 14px 42px rgba(14,63,51,.05)
+}
+.stage-copy{padding:18px}
+.stage-label{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald)}
+.stage-copy h3{font-size:30px;margin:10px 0 12px}
+.stage-copy p{color:var(--muted);max-width:520px}
+.stage-points{display:grid;gap:10px;margin:22px 0}
+.stage-point{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.stage-point i{
+  flex:0 0 22px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  background:#e8f5f0;color:var(--emerald);font-style:normal;font-weight:900;font-size:12px
+}
+.stage-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mini-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:var(--ink);font-size:13px;font-weight:800;cursor:pointer;transition:.2s ease
+}
+.mini-btn:hover{border-color:#aacbc0;transform:translateY(-2px)}
+.stage-visual{
+  min-height:300px;border-radius:22px;padding:24px;color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(145deg,var(--navy),#0c463a 58%,var(--emerald))
+}
+.stage-visual:before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 76% 26%,rgba(104,213,211,.24),transparent 28%),
+             radial-gradient(circle at 24% 80%,rgba(216,174,85,.16),transparent 26%);
+}
+.signal-stack{position:relative;z-index:2;height:100%;display:grid;align-content:center;gap:12px}
+.signal{
+  border:1px solid rgba(255,255,255,.17);background:rgba(255,255,255,.07);
+  border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:18px;align-items:center
+}
+.signal strong{font-size:14px}.signal span{font-size:12px;color:rgba(255,255,255,.68)}
+.signal .ok{color:#8fe4d4;font-weight:900}
+.signal .warn{color:#ffd77a;font-weight:900}
+
+.calculator{margin-top:26px;padding:28px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,#fff,#f6faf8);box-shadow:0 16px 48px rgba(14,63,51,.07)}
+.calculator-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:24px}
+.calculator-head h3{font-size:clamp(24px,3vw,34px);margin:8px 0}
+.calculator-head p{max-width:680px;color:var(--muted);margin:0}
+.calculator-badge{flex:0 0 auto;padding:8px 12px;border-radius:999px;background:#edf6f2;border:1px solid #d3e7de;color:var(--emerald);font-size:11px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+.interactive-batch{margin-top:20px;border:1px solid #c5ded2;border-radius:23px;background:linear-gradient(135deg,#f1f9f5,#fff 58%,#f8fbf9);box-shadow:0 10px 28px rgba(13,95,76,.07);overflow:hidden}
+.interactive-batch>summary{display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:14px;padding:18px 20px;list-style:none;cursor:pointer}
+.interactive-batch>summary::-webkit-details-marker{display:none}
+.interactive-batch>summary:focus-visible{outline-offset:-4px}
+.interactive-batch>summary:after{content:"＋";grid-column:3;grid-row:1;color:var(--emerald);font-size:22px;font-weight:500}
+.interactive-batch[open]>summary:after{content:"−"}
+.interactive-batch-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,var(--emerald),var(--emerald2));color:#fff;box-shadow:0 8px 20px rgba(13,95,76,.18)}
+.interactive-batch-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.interactive-batch-title{display:block;color:#183c31;font-size:16px;font-weight:900;letter-spacing:-.02em}
+.interactive-batch-copy{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.45}
+.interactive-batch-steps{display:flex;align-items:center;gap:7px;margin-top:8px;color:#4c6b60;font-size:10px;font-weight:850;letter-spacing:.03em}
+.interactive-batch-steps i{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.interactive-batch-cta{grid-column:2;grid-row:2;justify-self:start;display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:10px 14px;border-radius:999px;background:var(--emerald);color:white;font-size:12px;font-weight:850;box-shadow:0 7px 18px rgba(13,95,76,.16);transition:background .2s ease,transform .2s ease}
+.interactive-batch>summary:hover .interactive-batch-cta{background:#0a4f40;transform:translateY(-1px)}
+.interactive-batch-cta .close-label{display:none}
+.interactive-batch[open] .interactive-batch-cta .open-label{display:none}
+.interactive-batch[open] .interactive-batch-cta .close-label{display:inline}
+.interactive-batch:not([open])>.interactive-batch-content{display:none}
+.interactive-batch-content{padding:0 16px 18px}
+.calc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+.calc-step{display:flex;align-items:center;gap:11px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:#fff;color:#60716b;text-align:left;cursor:pointer;transition:.2s ease}
+.calc-step:hover{border-color:#b8d5ca;transform:translateY(-1px)}
+.calc-step[aria-current="step"]{background:#eaf6f1;border-color:#a8cfc0;color:var(--emerald);box-shadow:inset 0 0 0 1px #d0e7dd}
+.calc-step-number{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:10px;background:#f0f4f2;font-size:12px;font-weight:900}
+.calc-step[aria-current="step"] .calc-step-number{background:var(--emerald);color:#fff}
+.calc-step-label{font-size:13px;font-weight:850}
+.calc-panel{padding:22px;border:1px solid var(--line);border-radius:22px;background:#fff}
+.calc-panel+.calc-panel{margin-top:14px}
+.calc-panel-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:18px}
+.calc-panel-heading h4{font-size:18px;margin:0 0 4px;letter-spacing:-.02em}
+.calc-panel-heading p{margin:0;color:var(--muted);font-size:13px}
+.calc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.calc-field{display:grid;gap:6px;min-width:0}
+.calc-field label{font-size:12px;font-weight:800;color:#36564d}
+.calc-field input{width:100%;min-height:46px;border:1px solid #ceddd6;border-radius:12px;padding:10px 12px;background:#fbfdfc;color:var(--ink);font:inherit;font-size:15px;transition:border-color .18s ease,box-shadow .18s ease}
+.calc-field input:focus{outline:none;border-color:var(--emerald2);box-shadow:0 0 0 3px rgba(19,135,107,.14)}
+.calc-field small{font-size:11px;color:var(--muted)}
+.calc-divider{height:1px;background:var(--line);margin:18px 0}
+.calc-replicates{display:grid;gap:12px}
+.replicate-card{padding:17px;border:1px solid #e0eae5;border-radius:17px;background:#f9fcfa}
+.replicate-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.replicate-top strong{font-size:13px}
+.text-button{border:0;background:transparent;color:#8c453c;font-size:12px;font-weight:800;cursor:pointer;padding:6px 8px;border-radius:8px}
+.text-button:hover{background:#fff1ee}
+.calc-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+.calc-add{border:1px solid #cbded5;background:#fff;color:var(--emerald);border-radius:999px;padding:10px 14px;font-size:13px;font-weight:850;cursor:pointer;transition:.2s ease}
+.calc-add:hover{background:#f0f8f4;border-color:#9fc6b5}
+.calc-hint{margin:0;font-size:12px;color:var(--muted)}
+.calc-qa-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.calc-qc-card{display:grid;grid-template-columns:1fr auto;gap:5px 12px;padding:15px;border:1px solid #e0eae5;border-radius:15px;background:#fbfdfc}
+.calc-qc-card strong{font-size:13px}
+.calc-qc-card span{font-size:12px;color:var(--muted)}
+.calc-qc-status{grid-column:2;grid-row:1/3;align-self:center;padding:6px 9px;border-radius:999px;background:#f0f3f1;color:#61726c;font-size:10px;font-weight:900;text-align:center}
+.calc-qc-status.pass{background:#e7f4ef;color:#17664f}
+.calc-qc-status.review{background:#fff1e3;color:#875518}
+.calc-qc-status.fail{background:#fae9e6;color:#9a3d32}
+.calc-note{margin:14px 0 0;padding:12px 14px;border-radius:12px;background:#f3f7f5;color:#5d6f68;font-size:12px;line-height:1.55}
+.calc-decision{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.decision-card{padding:23px;border-radius:23px;background:linear-gradient(145deg,var(--navy),#0e4337 65%,var(--emerald));color:#fff;box-shadow:0 14px 34px rgba(16,43,56,.17)}
+.decision-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.decision-eyebrow{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#a8e5d7}
+.grade-wrap{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.76);font-size:12px;font-weight:800}
+.decision-score{display:flex;align-items:baseline;gap:7px;margin:23px 0 12px}
+.decision-score strong{font-size:clamp(45px,7vw,68px);line-height:.9;letter-spacing:-.06em}
+.decision-score span{font-size:13px;color:rgba(255,255,255,.68)}
+.decision-grade{display:inline-grid;place-items:center;min-width:46px;height:46px;padding:0 10px;border-radius:14px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);font-size:23px;font-weight:900}
+.decision-customer-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:22px}
+.decision-customer-field{padding:14px;border:1px solid rgba(255,255,255,.15);border-radius:15px;background:rgba(255,255,255,.07);min-width:0}
+.decision-customer-field>span{display:block;color:#a8e5d7;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.decision-customer-field strong{display:block;font-size:14px;line-height:1.4}
+.decision-customer-field p{margin:0;color:rgba(255,255,255,.8);font-size:12px;line-height:1.55;overflow-wrap:anywhere}
+.decision-customer-field strong+p{margin-top:6px}
+.decision-batch{font-size:12px;color:rgba(255,255,255,.77);margin-top:7px;overflow-wrap:anywhere}
+.decision-status-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;font-size:11px;font-weight:850}
+.decision-status-pill:before{content:"";width:7px;height:7px;border-radius:50%;background:#9ae1ce}
+.decision-status-pill.review:before{background:#ffd77a}
+.batch-history{margin-top:20px;padding:22px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 10px 30px rgba(14,63,51,.04)}
+.batch-history-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px}
+.batch-history-head h3{margin:0 0 4px;font-size:20px}
+.batch-history-head p{margin:0;color:var(--muted);font-size:13px}
+.history-scroll{overflow-x:auto;border:1px solid #e4ece8;border-radius:14px}
+.history-table{width:100%;min-width:780px;border-collapse:collapse;font-size:12px}
+.history-table th,.history-table td{padding:12px 13px;border-bottom:1px solid #e8efeb;text-align:left;vertical-align:top}
+.history-table th{background:#f5f9f7;color:#46645b;font-size:10px;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.history-table tbody tr:last-child td{border-bottom:0}
+.history-empty{padding:18px!important;color:var(--muted);text-align:center!important}
+.batch-record-status{min-height:18px;margin:10px 0 0;color:var(--emerald);font-size:11px;font-weight:750}
+.history-clear{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:#6c4d48;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800;cursor:pointer}
+.history-clear:hover{border-color:#d7b2aa;background:#fff9f7}
+.raman-panel{margin-top:16px;border:1px solid #cddfd7;border-radius:22px;background:linear-gradient(145deg,#fff,#f3f9f6);overflow:hidden}
+.raman-panel>summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;list-style:none;cursor:pointer;font-size:15px;font-weight:900;color:#23483d}
+.raman-panel>summary::-webkit-details-marker{display:none}
+.raman-panel>summary:after{content:"＋";font-size:20px;color:var(--emerald)}
+.raman-panel[open]>summary:after{content:"−"}
+.raman-panel-body{padding:0 20px 20px}
+.raman-trigger{display:none;margin-top:12px;padding:9px 12px;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(255,255,255,.13);color:#fff;font-size:12px;font-weight:850;cursor:pointer}
+.raman-trigger:hover{background:rgba(255,255,255,.22)}
+.raman-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.raman-chip{padding:7px 10px;border-radius:999px;background:#eaf5f0;color:#28634f;font-size:11px;font-weight:850}
+.raman-entry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.raman-replicates{display:grid;gap:9px;margin-top:12px}
+.raman-replicate{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end;padding:12px;border:1px solid #e0ebe5;border-radius:14px;background:#fbfdfc}
+.raman-output{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.raman-output-item{padding:13px;border:1px solid #dce9e3;border-radius:14px;background:#fff;min-width:0}
+.raman-output-item span{display:block;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.raman-output-item strong{display:block;margin-top:6px;font-size:16px;line-height:1.35;overflow-wrap:anywhere}
+.raman-output-item.full{background:#eff7f3}
+.raman-output-item.alert{background:#fff4e8;border-color:#efd8b8}
+.raman-reason{margin:12px 0 0;padding:12px 14px;border-radius:13px;background:#f0f6f3;color:#45635a;font-size:12px;line-height:1.55}
+.raman-details{margin-top:12px;border:1px solid #dce9e3;border-radius:14px;background:#fff;overflow:hidden}
+.raman-details summary{padding:12px 14px;cursor:pointer;color:#294a40;font-size:12px;font-weight:850}
+.raman-details-body{padding:0 14px 13px;color:var(--muted);font-size:12px;line-height:1.6;white-space:pre-line}
+.raman-update-status{min-height:18px;margin:8px 0 0;color:var(--emerald);font-size:11px;font-weight:800}
+.raman-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.raman-actions .btn{font-size:12px;padding:11px 14px}
+.raman-helper{margin:11px 0 0;color:var(--muted);font-size:11px;line-height:1.5}
+.screening-panel{margin-top:16px;border:1px solid #cddfd7;border-radius:22px;background:linear-gradient(145deg,#fff,#f3f9f6);overflow:hidden}
+.screening-panel>summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;list-style:none;cursor:pointer;font-size:15px;font-weight:900;color:#23483d}
+.screening-panel>summary::-webkit-details-marker{display:none}
+.screening-panel>summary:after{content:"＋";font-size:20px;color:var(--emerald)}
+.screening-panel[open]>summary:after{content:"−"}
+.screening-panel-body{padding:0 20px 20px}
+.screening-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.screening-chip{padding:7px 10px;border-radius:999px;background:#eaf5f0;color:#28634f;font-size:11px;font-weight:850}
+.screening-input-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.screening-upload{display:grid;gap:7px;padding:14px;border:1px dashed #b8d2c6;border-radius:15px;background:#fbfdfc}
+.screening-upload label{font-size:12px;font-weight:850;color:#36564d}
+.screening-upload input{width:100%;font:inherit;font-size:12px;color:var(--muted)}
+.screening-upload small{font-size:10px;color:var(--muted)}
+.screening-images{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.screening-image-card{margin:0;overflow:hidden;border:1px solid #dce9e3;border-radius:17px;background:#fff}
+.screening-image-card img{display:block;width:100%;height:260px;object-fit:contain;background:#f0f4f2;color:var(--muted)}
+.screening-image-card figcaption{padding:10px 12px;color:#45635a;font-size:11px;font-weight:850}
+.screening-features{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:15px}
+.screening-feature{padding:12px;border:1px solid #dce9e3;border-radius:13px;background:#fff;min-width:0}
+.screening-feature span{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+.screening-feature strong{display:block;margin-top:5px;color:#24493e;font-size:14px;overflow-wrap:anywhere}
+.screening-result{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:center;margin-top:14px;padding:14px;border-radius:15px;border:1px solid #dce9e3;background:#eff7f3}
+.screening-result.warning{border-color:#efd8b8;background:#fff7ed}
+.screening-result.review{border-color:#e9c8c2;background:#fff4f2}
+.screening-status{padding:8px 11px;border-radius:999px;background:#dff1e9;color:#17664f;font-size:11px;font-weight:900;white-space:nowrap}
+.screening-result.warning .screening-status{background:#ffebce;color:#805318}
+.screening-result.review .screening-status{background:#f4dfdb;color:#923d33}
+.screening-result p{margin:0;color:#45635a;font-size:12px;line-height:1.55}
+.screening-notice{margin:12px 0 0;padding:12px 14px;border-left:3px solid var(--gold);border-radius:0 12px 12px 0;background:#fbf7eb;color:#66562f;font-size:11px;line-height:1.55}
+.screening-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.screening-actions .btn{font-size:12px;padding:11px 14px}
+.screening-update{min-height:18px;margin:8px 0 0;color:var(--emerald);font-size:11px;font-weight:800}
+.screening-helper{margin:10px 0 0;color:var(--muted);font-size:11px;line-height:1.5}
+.screening-print-images{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0}
+.screening-print-images img{width:100%;max-height:340px;object-fit:contain;border:1px solid #c8d5ce}
+.evidence-report{display:none}
+@media print{
+  body>*{display:none!important}
+  .evidence-report{display:block!important;padding:28px;color:#182d27;font:12pt/1.5 Arial,sans-serif}
+  .evidence-report h1{font-size:25pt;line-height:1.1;letter-spacing:0;margin:0 0 6px}
+  .evidence-report h2{font-size:16pt;line-height:1.2;letter-spacing:0;margin:24px 0 8px}
+  .evidence-report p{margin:5px 0}
+  .evidence-report table{width:100%;border-collapse:collapse;margin:10px 0}
+  .evidence-report th,.evidence-report td{padding:7px;border:1px solid #c8d5ce;text-align:left;vertical-align:top}
+  .evidence-report .report-note{margin-top:24px;padding:10px;border:1px solid #d9e5e0;font-size:9pt}
+}
+.calc-details{display:grid;gap:9px;margin-top:16px}
+.calc-details details{border:1px solid var(--line);border-radius:15px;background:#fff;overflow:hidden}
+.calc-details summary{cursor:pointer;list-style:none;padding:15px 17px;font-size:13px;font-weight:850;color:#294a40;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.calc-details summary::-webkit-details-marker{display:none}
+.calc-details summary:after{content:"＋";font-size:18px;color:var(--emerald);line-height:1}
+.calc-details details[open] summary:after{content:"−"}
+.calc-details-body{padding:0 17px 16px;color:var(--muted);font-size:13px}
+.calc-details-body p:last-child{margin-bottom:0}
+.proxy-table{width:100%;border-collapse:collapse;font-size:12px}
+.proxy-table th,.proxy-table td{padding:9px 8px;text-align:left;border-bottom:1px solid #e7eeea}
+.proxy-table th{color:#36564d;font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+.proxy-table tr:last-child td{border-bottom:0}
+.calc-download{margin-top:10px}
+.calc-disclaimer{margin:13px 0 0;text-align:center;font-size:11px;color:var(--muted)}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.evidence-flow{
+  margin-top:22px;padding:24px;border:1px solid var(--line);border-radius:24px;background:#fff;overflow-x:auto
+}
+.evidence-track{display:flex;align-items:center;min-width:920px}
+.evidence-arrow{color:#8ba49c}
+
+.journey-topline{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:22px}
+.journey-kicker{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald)}
+.journey-kicker:before{content:"";display:inline-block;width:7px;height:7px;margin:0 7px 1px 0;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(216,174,85,.12);animation:journeySignal 2.4s ease-in-out infinite}
+.journey-heading{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-top:4px;color:#24483e}
+.journey-heading:after{content:"";display:block;width:72px;height:2px;margin-top:10px;border-radius:2px;background:linear-gradient(90deg,var(--emerald),var(--cyan));opacity:.7}
+@keyframes journeySignal{50%{transform:scale(1.35);opacity:.55}}
+.journey-toggle{border:1px solid var(--line);background:#f7faf8;color:#46645b;border-radius:999px;padding:9px 13px;font-size:12px;font-weight:800;cursor:pointer;transition:.2s ease;white-space:nowrap}
+.journey-toggle:hover{background:#eef7f3;border-color:#b9d3c9;color:var(--emerald)}
+.journey-track{display:flex;align-items:center;gap:7px;min-width:1040px;padding:3px}
+.journey-step{flex:1;min-width:138px;border:1px solid #dbe8e3;background:#fbfdfc;color:#49665e;border-radius:18px;padding:15px 12px;display:grid;gap:5px;text-align:left;font:inherit;font-size:12px;font-weight:850;cursor:pointer;transition:.24s ease;position:relative}
+.journey-step:hover{transform:translateY(-3px);border-color:#b8d5ca;box-shadow:0 9px 24px rgba(13,95,76,.08);color:var(--emerald)}
+.journey-step.active{background:linear-gradient(145deg,#eaf6f1,#f8fcfa);border-color:#9ec8b8;color:var(--emerald);box-shadow:0 11px 28px rgba(13,95,76,.10);animation:journeyStepIn .45s ease both}
+.journey-step.active:after{content:"";position:absolute;left:14px;right:14px;bottom:-2px;height:3px;border-radius:999px;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold))}
+@keyframes journeyStepIn{from{opacity:.65;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+.journey-number{font-size:10px;letter-spacing:.12em;color:var(--gold);font-weight:950}
+.journey-arrow{color:#91a9a1;font-size:17px;animation:arrowPulse 1.8s ease-in-out infinite}
+@keyframes arrowPulse{50%{transform:translateX(3px);opacity:.55}}
+.journey-progress{height:6px;background:#edf3f0;border-radius:999px;margin:20px 3px 18px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(16,43,56,.06)}
+.journey-progress span{display:block;height:100%;width:16.66%;border-radius:999px;background:linear-gradient(90deg,var(--emerald),var(--cyan),var(--gold));transition:width .42s cubic-bezier(.2,.8,.2,1)}
+.journey-detail{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:18px;padding:20px;border-radius:20px;background:linear-gradient(135deg,#f4faf7,#fbfdfc);border:1px solid #dce9e4;transition:.25s ease}
+.journey-detail-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--emerald);color:#fff;font-size:23px;box-shadow:0 10px 24px rgba(13,95,76,.16)}
+.journey-detail-label{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald)}
+.journey-detail h3{font-size:20px;margin:4px 0 3px}.journey-detail p{font-size:13px;color:var(--muted);margin:0;max-width:680px}
+.journey-status{font-size:10px;font-weight:950;letter-spacing:.11em;color:var(--emerald);background:#e7f4ef;border:1px solid #cce4da;border-radius:999px;padding:9px 11px;white-space:nowrap}
+.journey-detail-icon{animation:journeyIconGlow 2.8s ease-in-out infinite}
+@keyframes journeyIconGlow{50%{box-shadow:0 10px 28px rgba(13,95,76,.3),0 0 0 5px rgba(104,213,211,.08)}}
+@media(max-width:900px){.journey-topline{align-items:flex-start;flex-direction:column}.journey-detail{grid-template-columns:44px 1fr}.journey-detail-icon{width:44px;height:44px}.journey-status{grid-column:2;justify-self:start}.journey-track{min-width:960px}}
+
+.mrv-panel{
+  margin-top:68px;background:linear-gradient(135deg,var(--navy),#0e4337 58%,var(--emerald));
+  color:#fff;border-radius:34px;padding:52px;box-shadow:var(--shadow)
+}
+.mrv-panel .eyebrow{color:#88e1d3}
+.mrv-panel h2{max-width:850px}
+.mrv-panel p{max-width:850px;color:rgba(255,255,255,.72)}
+.mrv-values{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.mrv-value{
+  padding:20px;border:1px solid rgba(255,255,255,.15);border-radius:18px;
+  background:rgba(255,255,255,.045);transition:.25s ease
+}
+.mrv-value:hover{transform:translateY(-3px);background:rgba(255,255,255,.075)}
+.mrv-value b{display:block;font-size:18px}.mrv-value span{font-size:13px;color:rgba(255,255,255,.65)}
+.mrv-visual{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:30px;align-items:center;margin-top:28px;padding:18px;border:1px solid rgba(255,255,255,.15);border-radius:26px;background:rgba(255,255,255,.06)}
+.mrv-visual .visual-frame{border:1px solid rgba(255,255,255,.18)}
+.mrv-visual .visual-frame img{aspect-ratio:1/1}
+.mrv-visual-copy{padding:10px 14px 10px 0}
+.mrv-visual-copy h3{font-size:clamp(23px,2.4vw,32px);line-height:1.12;letter-spacing:-.035em;margin:10px 0 12px}
+.mrv-visual-copy>p{color:rgba(255,255,255,.76);font-size:14px}
+.mrv-visual-copy .visual-points{margin-top:18px}
+.mrv-visual-copy .visual-points li{color:rgba(255,255,255,.88)}
+.mrv-visual-copy .visual-points li:before{background:rgba(136,225,211,.14);color:#88e1d3}
+.mrv-visual-copy .visual-disclaimer{background:rgba(216,174,85,.12);border-left-color:var(--gold);color:#f7e5b8}
+.nav-links a.nav-active{color:var(--emerald);font-weight:850}
+
+@media(max-width:900px){
+  .nav-row{height:68px}
+  .nav-links{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;padding:14px 20px 20px;background:rgba(247,250,248,.98);border-bottom:1px solid var(--line);box-shadow:0 18px 28px rgba(14,63,51,.10);align-items:stretch;gap:4px;flex-direction:column}
+  .nav-links.is-open{display:flex}
+  .nav-links a:not(.btn){padding:12px 10px;border-radius:10px}
+  .nav-links .btn{margin-top:8px}
+  .hamburger{display:grid;place-items:center}
+  .hero-grid,.value-band{grid-template-columns:1fr}
+  .hero-visual{min-height:470px}
+  .metrics,.platform-grid,.science-grid,.platform-stage,.mrv-values{grid-template-columns:1fr}
+  .section{padding:82px 0}.value-band{padding:34px}
+  .platform-intro{align-items:flex-start;flex-direction:column}
+  .platform-intro-actions{width:100%}
+  .science-card{min-height:0}
+  .platform-stage{gap:12px}
+  .stage-visual{min-height:280px}
+  .mrv-panel{padding:38px}
+  .editorial-visual,.mrv-visual{grid-template-columns:1fr;gap:18px}
+  .visual-copy,.mrv-visual-copy{padding:8px 6px 10px}
+  .calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .decision-customer-fields{grid-template-columns:1fr}
+  .raman-entry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .raman-output{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .screening-input-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .screening-features{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .wrap{width:min(calc(100% - 32px),var(--max))}
+  h1{font-size:clamp(42px,13vw,64px);line-height:.98}
+  h2{font-size:clamp(32px,9vw,44px);line-height:1.03}
+  .section{padding:66px 0}.section-tight{padding:58px 0}
+  .hero{min-height:auto;padding:56px 0 64px}
+  .hero-grid{gap:38px}
+  .hero-visual{min-height:440px;border-radius:26px}
+  .journey{inset:56px 22px 28px;gap:4px}
+  .node{grid-template-columns:40px 1fr;gap:11px}
+  .icon{width:40px;height:40px;border-radius:12px}
+  .node strong{font-size:13px}.node span{font-size:11px}
+  .pulse{right:22px;top:20px;width:68px;height:68px}
+  .pulse:after{inset:13px}
+  .hero-actions,.final-actions{align-items:stretch;flex-direction:column}
+  .hero-actions .btn,.final-actions .btn{width:100%}
+  .metrics{grid-template-columns:1fr;gap:12px;margin-top:30px}
+  .metric{padding:23px}
+  .flow{padding:18px;border-radius:22px}
+  .flow-row{min-width:780px}
+  .flow-item{padding:12px 8px}
+  .flow-item .dot{width:52px;height:52px;border-radius:16px}
+  .platform-intro{margin-bottom:26px}
+  .platform-card{padding:23px;min-height:290px}
+  .science-card{padding:22px}
+  .platform-stage{padding:14px;border-radius:22px}
+  .stage-copy{padding:10px 6px}
+  .stage-copy h3{font-size:26px}
+  .stage-visual{min-height:270px;padding:16px}
+  .signal{padding:12px;gap:10px}
+  .evidence-flow{padding:17px;border-radius:20px}
+  .journey-topline{gap:12px}
+  .journey-toggle{white-space:normal;text-align:center}
+  .journey-track{min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .journey-arrow{display:none}
+  .journey-step{min-width:0;min-height:68px;padding:11px;font-size:12px}
+  .journey-step:last-of-type{grid-column:1/-1}
+  .journey-progress{margin:14px 2px}
+  .journey-detail{grid-template-columns:42px 1fr;gap:12px;padding:15px}
+  .journey-detail-icon{width:42px;height:42px;border-radius:13px;font-size:20px}
+  .journey-detail h3{font-size:18px}
+  .journey-detail p{font-size:12px}
+  .journey-status{grid-column:2;justify-self:start}
+  .mrv-panel{margin-top:44px;padding:28px 22px;border-radius:26px}
+  .editorial-visual,.mrv-visual{padding:13px;border-radius:22px}
+  .visual-frame{border-radius:17px}
+  .visual-flag{top:10px;left:10px;max-width:calc(100% - 20px);font-size:10px}
+  .visual-copy,.mrv-visual-copy{padding:5px 4px 7px}
+  .mrv-values{gap:9px}
+  .mrv-value{padding:17px}
+  .calculator{padding:16px;border-radius:23px}
+  .calculator-head{display:grid;gap:12px}
+  .calculator-badge{justify-self:start}
+  .interactive-batch{border-radius:19px}
+  .interactive-batch>summary{grid-template-columns:38px minmax(0,1fr) 18px;gap:10px;padding:14px}
+  .interactive-batch-icon{width:38px;height:38px;border-radius:12px}
+  .interactive-batch-title{font-size:14px}
+  .interactive-batch-copy{display:none}
+  .interactive-batch-steps{font-size:9px;gap:5px;flex-wrap:wrap}
+  .interactive-batch-cta{grid-column:2/4;grid-row:2;justify-self:stretch;justify-content:center;margin-top:7px;padding:8px 12px;font-size:11px}
+  .interactive-batch>summary:after{grid-column:3;grid-row:1}
+  .interactive-batch-content{padding:0 5px 10px}
+  .calc-steps{gap:6px}
+  .calc-step{justify-content:center;gap:7px;padding:10px 6px}
+  .calc-step-label{font-size:11px}
+  .calc-step-number{width:26px;height:26px;flex-basis:26px}
+  .calc-panel{padding:15px;border-radius:18px}
+  .calc-panel-heading{display:grid;gap:8px}
+  .calc-grid,.calc-qa-grid{grid-template-columns:1fr}
+  .calc-qc-status{grid-column:1/-1;grid-row:auto;justify-self:start}
+  .calc-actions{align-items:stretch;flex-direction:column}
+  .calc-add{width:100%}
+  .calc-hint{align-self:flex-start}
+  .decision-card{padding:18px}
+  .raman-panel>summary{padding:15px;font-size:13px}
+  .raman-panel-body{padding:0 14px 15px}
+  .raman-entry-grid{grid-template-columns:1fr}
+  .raman-output{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .raman-actions{display:grid;grid-template-columns:1fr}
+  .raman-actions .btn{width:100%}
+  .screening-panel>summary{padding:15px;font-size:13px}
+  .screening-panel-body{padding:0 14px 15px}
+  .screening-input-grid,.screening-images{grid-template-columns:1fr}
+  .screening-image-card img{height:220px}
+  .screening-result{grid-template-columns:1fr}
+  .screening-status{justify-self:start}
+  .screening-actions{display:grid;grid-template-columns:1fr}
+  .screening-actions .btn{width:100%}
+  .proxy-table th,.proxy-table td{padding:8px 5px;font-size:11px}
+  .final{padding:78px 0 62px}
+  .final p{font-size:16px}
+  .footer-row{align-items:flex-start;flex-direction:column;gap:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#top">Skip to content</a>
+<nav aria-label="Main navigation">
+  <div class="wrap nav-row">
+    <a class="brand" href="#top" aria-label="Biochar Arabia home"><img class="brand-logo" src="assets/logo.png" alt="Biochar Arabia" width="1536" height="1024"></a>
+    <div class="nav-links" id="primary-navigation">
+      <a href="#why">Verification Gap</a>
+      <a href="#platform">Platform</a>
+      <a href="#mrv">MRV Intelligence</a>
+      <a class="btn btn-primary" href="#contact">Request Early Access <span class="arrow">→</span></a>
+    </div>
+    <button class="hamburger" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<main id="top" tabindex="-1">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Chemistry × MRV × Carbon Removal</div>
+      <h1>From biochar batch to trusted evidence.</h1>
+      <p class="lead">We are building the chemistry-to-MRV bridge that makes biochar evidence easier to trace, assess and prepare for verification.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#platform">Explore Platform <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#contact">Partner With Us</a>
+      </div>
+      <div class="status"><i></i> Currently in development and validation</div>
+    </div>
+    <div class="hero-visual">
+      <div class="gridlines"></div><div class="pulse"></div>
+      <div class="journey">
+        <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"/><path d="m4.4 7.7 7.6 4.4 7.6-4.4M12 12.1V21"/><circle cx="9" cy="7" r=".7" fill="currentColor" stroke="none"/><circle cx="14.5" cy="8.5" r=".7" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15" r=".7" fill="currentColor" stroke="none"/></svg></div><div><strong>Biochar Batch</strong><span>Identity + process context</span></div></div>
+        <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5.2 8.2A2.5 2.5 0 0 0 6.9 21h10.2a2.5 2.5 0 0 0 2.1-3.8L14 9V3"/><path d="M7.8 15h8.4M9.5 12.2h5"/><circle cx="12" cy="17.7" r=".7" fill="currentColor" stroke="none"/></svg></div><div><strong>Chemistry</strong><span>Structured evidence inputs</span></div></div>
+        <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h10a2 2 0 0 1 2 2V21H5V6.5a2 2 0 0 1 2-2Z"/><path d="M9 4.5V3h6v1.5M8.5 10h4M8.5 14h3"/><path d="m13.5 16 2 2 4-4"/></svg></div><div><strong>QA/QC</strong><span>Completeness + uncertainty</span></div></div>
+        <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h3l2.2-6 4.1 11 2.5-8 1.8 3H21"/><path d="M4 5.5h4M16 18.5h4" opacity=".65"/></svg></div><div><strong>Selective Raman</strong><span>Escalate when needed</span></div></div>
+        <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 5h3a4 4 0 0 1 4 4v5a4 4 0 0 0 4 4M14 9h3M14 14h3"/><path d="m16 7 2 2-2 2M16 12l2 2-2 2"/></svg></div><div><strong>MRV Decision</strong><span>Clear next action</span></div></div>
+        <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4V20H6z"/><path d="M14 3.5v4h4M9 12h5M9 15h3"/><circle cx="17.5" cy="17.5" r="3.2"/><path d="m16 17.5 1 1 2-2"/></svg></div><div><strong>Verification-Ready Evidence</strong><span>Traceable batch record</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="section-tight">
+  <div class="wrap">
+    <div class="eyebrow">The gap</div>
+    <h2>Biochar production is scaling.<br>Evidence is still fragmented.</h2>
+    <p class="lead">Sampling, laboratory chemistry, QA/QC and verification documentation often live in separate workflows.</p>
+    <div class="metrics">
+      <div class="metric"><b class="count-up" data-target="4" data-suffix="+">0+</b><strong>Evidence layers</strong><span>Sampling · chemistry · QA/QC · documentation</span></div>
+      <div class="metric"><b class="count-up" data-target="3" data-suffix="">0</b><strong>Decision pathways</strong><span>Proceed · repeat measurement · expert review</span></div>
+      <div class="metric"><b class="count-up" data-target="1" data-suffix="">0</b><strong>Connected workflow</strong><span>In development: a traceable evidence journey per batch</span></div>
+    </div>
+    <div class="editorial-visual">
+      <figure class="visual-frame">
+        <img src="assets/image1.png" alt="Concept illustration contrasting fragmented biochar batch records with an example of a structured digital evidence workspace. Dashboard values and status labels are illustrative only." width="4000" height="3727" loading="lazy" decoding="async">
+        <span class="visual-flag">Concept visual · illustrative only</span>
+      </figure>
+      <div class="visual-copy">
+        <div class="eyebrow">The problem we are addressing</div>
+        <h3>Bring scattered batch evidence into one clearer view.</h3>
+        <p>Sampling notes, laboratory results, QA/QC checks and process context can be difficult to review when they live in separate places. Biochar Arabia is developing a workflow to connect those inputs into a traceable batch record.</p>
+        <ul class="visual-points">
+          <li>Link batch identity, process context and source data.</li>
+          <li>Keep chemistry, QA/QC and uncertainty visible together.</li>
+          <li>Prepare organized evidence for downstream independent review.</li>
+        </ul>
+        <p class="visual-disclaimer">This concept artwork includes example scores and verification-related labels. These are placeholders—not measured results, issued credits, certification, registry approval or a claim of permanence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach" class="section">
+  <div class="wrap">
+    <div class="eyebrow">Our approach</div>
+    <h2>Connect the evidence.<br>Clarify the next decision.</h2>
+    <p class="lead">Measure what is needed. Escalate when uncertainty demands it.</p>
+    <div class="flow">
+      <div class="flow-row">
+        <div class="flow-item"><div class="dot">01</div><strong>Biochar Batch</strong></div><div class="flow-arrow">→</div>
+        <div class="flow-item"><div class="dot">02</div><strong>Chemistry</strong></div><div class="flow-arrow">→</div>
+        <div class="flow-item"><div class="dot">03</div><strong>QA/QC</strong></div><div class="flow-arrow">→</div>
+        <div class="flow-item"><div class="dot">04</div><strong>Selective Raman</strong></div><div class="flow-arrow">→</div>
+        <div class="flow-item"><div class="dot">05</div><strong>MRV Decision</strong></div><div class="flow-arrow">→</div>
+        <div class="flow-item"><div class="dot">06</div><strong>Evidence Package</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="platform" class="section-tight">
+  <div class="wrap">
+    <div class="platform-intro">
+      <div>
+        <div class="eyebrow">The platform</div>
+        <h2>One evidence ladder.<br>Three scientific layers.</h2>
+        <p class="lead">Start simple, add stronger evidence only when the batch needs it.</p>
+      </div>
+      <div class="platform-intro-actions">
+        <a class="btn btn-primary" href="#cdi-calculator">Try the CDI Calculator <span class="arrow">↓</span></a>
+        <a class="btn btn-ghost" href="#contact">Discuss a Pilot <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="science-grid" role="group" aria-label="Biochar Arabia scientific layers">
+      <article class="science-card active" tabindex="0" role="button" aria-pressed="true" data-layer="cdi">
+        <div class="index">01</div>
+        <h3>CDI Intelligence</h3>
+        <p>Selected chemistry proxies become a transparent batch-level screening score, QA/QC view and next action.</p>
+        <div class="card-action">Explore CDI <span>→</span></div>
+      </article>
+
+      <article class="science-card" tabindex="0" role="button" aria-pressed="false" data-layer="screen">
+        <div class="index">02</div>
+        <h3>Smart Screening</h3>
+        <p>Spray–Shine–Snap captures standardized field images and batch metadata for early screening.</p>
+        <div class="card-action">See Screening <span>→</span></div>
+      </article>
+
+      <article class="science-card" tabindex="0" role="button" aria-pressed="false" data-layer="raman">
+        <div class="index">03</div>
+        <h3>Structural Fingerprint</h3>
+        <p>Raman descriptors provide selective structural evidence for borderline, unusual or changed-process batches.</p>
+        <div class="card-action">See Fingerprint <span>→</span></div>
+      </article>
+    </div>
+
+    <div class="platform-stage" aria-live="polite">
+      <div class="stage-copy">
+        <div class="stage-label" id="stageLabel">Layer 01 · Routine assessment</div>
+        <h3 id="stageTitle">Chemistry first. Clearer decisions.</h3>
+        <p id="stageText">CDI organizes selected chemistry proxies into a transparent screening layer while QA/QC remains visible and separate from the score.</p>
+        <div class="stage-points" id="stagePoints">
+          <div class="stage-point"><i>✓</i><span>Batch chemistry in one structured view</span></div>
+          <div class="stage-point"><i>✓</i><span>Transparent CDI score and operational grade</span></div>
+          <div class="stage-point"><i>✓</i><span>QA/QC and uncertainty remain visible</span></div>
+        </div>
+        <div class="stage-actions">
+          <button class="mini-btn" type="button" data-next="screen">Next layer <span>→</span></button>
+          <a class="mini-btn" href="#contact">Ask about validation</a>
+        </div>
+      </div>
+
+      <div class="stage-visual" id="stageVisual">
+        <div class="signal-stack" id="signalStack">
+          <div class="signal"><div><strong>Fixed Carbon / VM</strong><br><span>Chemistry proxy</span></div><div class="ok">READY</div></div>
+          <div class="signal"><div><strong>H/C + O/C</strong><br><span>Supporting evidence</span></div><div class="ok">READY</div></div>
+          <div class="signal"><div><strong>QA/QC</strong><br><span>Separate confidence layer</span></div><div class="warn">CHECK</div></div>
+          <div class="signal"><div><strong>Next Action</strong><br><span>Proceed · Repeat · Confirm · Review</span></div><div class="ok">GUIDED</div></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="calculator" id="cdi-calculator" aria-labelledby="calculatorTitle">
+      <div class="calculator-head">
+        <div>
+          <div class="eyebrow">Interactive batch tool</div>
+          <h3 id="calculatorTitle">CDI Intelligence</h3>
+          <p>Enter measured batch values, review quality checks separately, then see the next evidence action. Your data stays in this browser.</p>
+        </div>
+        <span class="calculator-badge">Provisional literature-threshold CDI — in validation.</span>
+      </div>
+
+      <details class="interactive-batch" id="interactiveBatchDetails">
+        <summary>
+          <span class="interactive-batch-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z"/><path d="m4.3 7.7 7.7 4.4 7.7-4.4M12 12v9"/><path d="m8 5.3 8 4.5"/></svg></span>
+          <span>
+            <span class="interactive-batch-title">Start your batch assessment</span>
+            <span class="interactive-batch-copy">A guided, three-step workflow. Add measured data, review evidence quality, and see the next action.</span>
+            <span class="interactive-batch-steps">Batch Input <i></i> QA/QC <i></i> Decision</span>
+          </span>
+          <span class="interactive-batch-cta"><span class="open-label">Open interactive tool <span aria-hidden="true">→</span></span><span class="close-label">Hide tool <span aria-hidden="true">↑</span></span></span>
+        </summary>
+        <div class="interactive-batch-content">
+      <div class="calc-steps" role="group" aria-label="Calculator steps">
+        <button class="calc-step" type="button" data-calc-step="input" aria-current="step"><span class="calc-step-number">1</span><span class="calc-step-label">Batch Input</span></button>
+        <button class="calc-step" type="button" data-calc-step="qaqc"><span class="calc-step-number">2</span><span class="calc-step-label">QA/QC</span></button>
+        <button class="calc-step" type="button" data-calc-step="decision"><span class="calc-step-number">3</span><span class="calc-step-label">Decision</span></button>
+      </div>
+
+      <div class="calc-panel" id="calcInputPanel" aria-labelledby="calcInputHeading">
+        <div class="calc-panel-heading">
+          <div><h4 id="calcInputHeading">1. Batch input</h4><p>Enter values from your measured batch record. Do not estimate missing values.</p></div>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-field"><label for="calcBatchId">Batch ID</label><input id="calcBatchId" name="batchId" type="text" maxlength="80" placeholder="e.g. BA-2026-014" autocomplete="off"></div>
+          <div class="calc-field"><label for="calcFixedCarbon">Fixed Carbon (%)</label><input id="calcFixedCarbon" data-proxy="fixedCarbon" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="Measured value"></div>
+          <div class="calc-field"><label for="calcVolatileMatter">Volatile Matter (%)</label><input id="calcVolatileMatter" data-proxy="volatileMatter" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="Measured value"></div>
+          <div class="calc-field"><label for="calcHC">Atomic H/C</label><input id="calcHC" data-proxy="hc" type="number" min="0" step="any" inputmode="decimal" placeholder="Measured ratio"></div>
+          <div class="calc-field"><label for="calcOC">Atomic O/C</label><input id="calcOC" data-proxy="oc" type="number" min="0" step="any" inputmode="decimal" placeholder="Measured ratio"></div>
+          <div class="calc-field"><label for="calcRaman">Raman I<sub>D</sub>/I<sub>G</sub></label><input id="calcRaman" data-proxy="raman" type="number" min="0" step="any" inputmode="decimal" placeholder="Measured ratio"><small>Required for a final CDI in this model.</small></div>
+          <div class="calc-field"><label for="calcOperator">Operator</label><input id="calcOperator" type="text" maxlength="80" placeholder="Name or operator ID" autocomplete="off"></div>
+          <div class="calc-field"><label for="calcDate">Measurement date</label><input id="calcDate" type="date"></div>
+        </div>
+        <div class="calc-divider"></div>
+        <div class="calc-panel-heading">
+          <div><h4>Replicate measurements</h4><p>Add repeat observations to assess within-batch variability. Each replicate includes its operator and date.</p></div>
+        </div>
+        <div class="calc-replicates" id="calcReplicates" aria-live="polite"></div>
+        <div class="calc-actions">
+          <button class="calc-add" type="button" id="addReplicate">＋ Add replicate</button>
+          <p class="calc-hint">At least two valid observations are needed for a per-proxy CV.</p>
+        </div>
+      </div>
+
+      <div class="calc-panel" id="calcQaPanel" aria-labelledby="calcQaHeading">
+        <div class="calc-panel-heading">
+          <div><h4 id="calcQaHeading">2. QA/QC — separate from CDI</h4><p>Only assess a metric when its data and comparison design are sufficient.</p></div>
+        </div>
+        <div class="calc-qa-grid" id="calcQaMetrics" aria-live="polite"></div>
+        <p class="calc-note" id="calcQaNote">QA/QC never adds to, subtracts from, or changes the CDI score. ICC needs an appropriate multi-batch/reliability study design and will not be inferred from repeats on one batch.</p>
+      </div>
+
+      <div class="calc-panel" id="calcDecisionPanel" aria-labelledby="calcDecisionHeading">
+        <div class="calc-panel-heading">
+          <div><h4 id="calcDecisionHeading">3. Decision</h4><p>A screening aid for the next step—not a certification, registry decision or permanence determination.</p></div>
+        </div>
+        <div class="calc-decision">
+          <div class="decision-card" aria-live="polite" aria-atomic="true">
+            <div class="decision-top">
+              <div><div class="decision-eyebrow" id="decisionScoreLabel">Chemistry Screen</div><div class="decision-batch" id="decisionBatch">Batch ID not provided</div></div>
+              <div class="grade-wrap"><span>Grade</span><div class="decision-grade" id="decisionGrade" aria-label="Grade unavailable">—</div></div>
+            </div>
+            <div class="decision-score"><strong id="decisionScore">—</strong><span>/ 100</span></div>
+            <div class="decision-customer-fields">
+              <div class="decision-customer-field"><span>Chemistry screening status</span><strong id="chemistryStatus">Preliminary Screen</strong></div>
+              <div class="decision-customer-field"><span>QA/QC status</span><strong id="decisionConfidence">Not assessed</strong></div>
+              <div class="decision-customer-field"><span>Raman status</span><strong id="ramanStatus">Required · not entered</strong></div>
+              <div class="decision-customer-field"><span>Why</span><p id="decisionReason">Enter measured values to see what drives the result.</p></div>
+              <div class="decision-customer-field"><span>Recommended next action</span><strong id="decisionAction">Enter measured values</strong><p id="decisionActionDetail">No final score is shown until required evidence is available.</p></div>
+            </div>
+            <button class="raman-trigger" id="openRamanAssessment" type="button">Open Raman Fingerprint Assessment</button>
+          </div>
+        </div>
+        <div class="calc-details">
+          <details>
+            <summary>How was this calculated?</summary>
+            <div class="calc-details-body">
+              <div id="whyResultBody"><p>Enter measurements to see proxy scores and the weighted calculation.</p></div>
+              <table class="proxy-table"><thead><tr><th>Proxy</th><th>Measured</th><th>Score</th><th>Weight</th></tr></thead><tbody id="proxyScoreRows"></tbody></table>
+              <p class="calc-note"><strong>Provisional literature-threshold CDI — in validation.</strong><br>CDI = 0.20 × SFC + 0.20 × SVM + 0.20 × SHC + 0.15 × SOC + 0.25 × SRaman. The stated weights are fixed and are not renormalized. QA/QC is reported separately and never changes CDI.</p>
+              <p>Generate a timestamped local record with batch metadata, all supplied measurements, evidence status, QA/QC, decision and rationale.</p>
+              <button class="calc-add calc-download" id="downloadBatchRecord" type="button">Generate Batch Record</button>
+              <span class="visually-hidden" id="downloadStatus" role="status" aria-live="polite"></span>
+            </div>
+          </details>
+        </div>
+        <p class="calc-disclaimer">Development/validation screening tool. It does not certify carbon removal, issue credits, approve registry eligibility or determine permanence.</p>
+      </div>
+
+      <details class="raman-panel" id="ramanAssessment" aria-labelledby="ramanAssessmentTitle">
+        <summary id="ramanAssessmentTitle">Raman Fingerprint · selective structural evidence</summary>
+        <div class="raman-panel-body">
+          <div class="raman-meta"><span class="raman-chip" id="ramanLinkedBatch">Batch: not linked</span><span class="raman-chip" id="ramanTriggerReason">Trigger: add batch measurements to assess</span><span class="raman-chip">Selective assessment · in validation</span></div>
+          <p class="small">Enter a measured primary ID/IG and any replicate ID/IG readings. D/G positions and widths are optional contextual descriptors; they do not directly prove permanence.</p>
+          <div class="raman-entry-grid">
+            <div class="calc-field"><label for="ramanPrimaryRatio">Primary Raman I<sub>D</sub>/I<sub>G</sub> *</label><input id="ramanPrimaryRatio" type="number" min="0" step="any" inputmode="decimal" placeholder="Measured ratio"></div>
+            <div class="calc-field"><label for="ramanDPosition">D-band position (cm⁻¹)</label><input id="ramanDPosition" type="number" min="0" step="any" inputmode="decimal" placeholder="Optional"></div>
+            <div class="calc-field"><label for="ramanGPosition">G-band position (cm⁻¹)</label><input id="ramanGPosition" type="number" min="0" step="any" inputmode="decimal" placeholder="Optional"></div>
+            <div class="calc-field"><label for="ramanDWidth">D-band width (cm⁻¹)</label><input id="ramanDWidth" type="number" min="0" step="any" inputmode="decimal" placeholder="Optional"></div>
+            <div class="calc-field"><label for="ramanGWidth">G-band width (cm⁻¹)</label><input id="ramanGWidth" type="number" min="0" step="any" inputmode="decimal" placeholder="Optional"></div>
+          </div>
+          <div class="calc-actions"><button class="calc-add" type="button" id="addRamanReplicate">＋ Add replicate ID/IG</button><p class="calc-hint">Repeatability is assessed only when multiple valid ratios are present.</p></div>
+          <div class="raman-replicates" id="ramanReplicates" aria-live="polite"></div>
+          <div class="calc-field" style="margin-top:14px"><label for="ramanNotes">Notes</label><textarea id="ramanNotes" rows="3" maxlength="1200" placeholder="Optional sample context, measurement conditions or observations." style="resize:vertical;width:100%;border:1px solid #ceddd6;border-radius:12px;padding:11px 12px;background:#fbfdfc;color:var(--ink);font:inherit;font-size:14px"></textarea></div>
+          <div class="raman-output" aria-live="polite" aria-atomic="true">
+            <div class="raman-output-item"><span>Raman status</span><strong id="ramanResultStatus">Not assessed</strong></div>
+            <div class="raman-output-item"><span>ID/IG</span><strong id="ramanResultIdIg">—</strong></div>
+            <div class="raman-output-item"><span>Raman score</span><strong id="ramanResultScore">—</strong></div>
+            <div class="raman-output-item"><span>Repeatability</span><strong id="ramanRepeatability">Not assessed</strong></div>
+            <div class="raman-output-item full"><span>Full CDI</span><strong id="ramanFullCdi">Awaiting all five proxies</strong></div>
+            <div class="raman-output-item"><span>Grade</span><strong id="ramanFullGrade">—</strong></div>
+            <div class="raman-output-item full"><span>Next action</span><strong id="ramanNextAction">Complete required batch evidence</strong></div>
+          </div>
+          <p class="raman-reason" id="ramanReason">Raman trigger will be explained here after the current batch screening is assessed.</p>
+          <details class="raman-details" id="fingerprintDetails"><summary>Fingerprint details and measurement context</summary><div class="raman-details-body" id="fingerprintDetailsBody">Measured Raman descriptors and replicate details will appear here.</div></details>
+          <div class="raman-actions">
+            <button class="btn btn-ghost" id="viewFingerprintDetails" type="button">View Fingerprint Details</button>
+            <button class="btn btn-primary" id="updateBatchRecord" type="button">Update Batch Record</button>
+            <button class="btn btn-ghost" id="generateEvidencePdf" type="button">Generate Evidence PDF</button>
+          </div>
+          <p class="raman-update-status" id="ramanUpdateStatus" role="status" aria-live="polite"></p>
+          <p class="raman-helper">The Evidence PDF button opens the browser print dialog; choose “Save as PDF.” This is an in-development evidence summary, not certification, registry approval or proof of permanence.</p>
+        </div>
+      </details>
+
+      <details class="screening-panel" id="smartScreening" aria-labelledby="smartScreeningTitle">
+        <summary id="smartScreeningTitle">Smart Screening · Spray–Shine–Snap</summary>
+        <div class="screening-panel-body">
+          <div class="screening-meta"><span class="screening-chip" id="screeningLinkedBatch">Batch: not linked</span><span class="screening-chip">In development / calibration</span><span class="screening-chip">Field screening only</span></div>
+          <p class="small">This module uses the Batch ID from Batch Input. Capture a normal-light image and a 365 nm UV image of the same prepared sample. Keep camera distance, lighting and sample presentation as consistent as practical.</p>
+          <div class="screening-input-grid">
+            <div class="screening-upload"><label for="normalSampleImage">Normal sample image *</label><input id="normalSampleImage" type="file" accept="image/*"><small>Use a clear, in-focus image with the sample visible.</small></div>
+            <div class="screening-upload"><label for="uvSampleImage">365 nm UV image *</label><input id="uvSampleImage" type="file" accept="image/*"><small>Use appropriate UV-safe handling and capture the same sample area.</small></div>
+            <div class="calc-field"><label for="samplePreparation">Sample preparation metadata *</label><input id="samplePreparation" type="text" maxlength="240" placeholder="e.g. dried, sieved, surface prepared"></div>
+            <div class="calc-field"><label for="screeningReagent">Reagent / dose *</label><input id="screeningReagent" type="text" maxlength="160" placeholder="Reagent and applied dose"></div>
+            <div class="calc-field"><label for="screeningOperator">Operator *</label><input id="screeningOperator" type="text" maxlength="100" placeholder="Name or operator ID"></div>
+            <div class="calc-field"><label for="screeningDateTime">Date / time *</label><input id="screeningDateTime" type="datetime-local"></div>
+            <div class="calc-field" style="grid-column:1/-1"><label for="screeningNotes">Optional notes</label><textarea id="screeningNotes" rows="3" maxlength="1200" placeholder="Sample context, capture conditions or observations." style="resize:vertical;width:100%;border:1px solid #ceddd6;border-radius:12px;padding:11px 12px;background:#fbfdfc;color:var(--ink);font:inherit;font-size:14px"></textarea></div>
+          </div>
+          <div class="screening-images">
+            <figure class="screening-image-card"><img id="normalImagePreview" alt="Normal-light sample preview; no image selected yet"><figcaption id="normalImageCaption">Normal light · image not selected</figcaption></figure>
+            <figure class="screening-image-card"><img id="uvImagePreview" alt="365 nanometre UV sample preview; no image selected yet"><figcaption id="uvImageCaption">365 nm UV · image not selected</figcaption></figure>
+          </div>
+          <div class="screening-features" aria-live="polite" aria-atomic="true">
+            <div class="screening-feature"><span>Brightness · normal</span><strong id="featureNormalBrightness">Not assessed</strong></div>
+            <div class="screening-feature"><span>Color response · normal</span><strong id="featureColorResponse">Not assessed</strong></div>
+            <div class="screening-feature"><span>Fluorescence distribution · UV</span><strong id="featureFluorescence">Not assessed</strong></div>
+            <div class="screening-feature"><span>Texture / heterogeneity</span><strong id="featureTexture">Not assessed</strong></div>
+          </div>
+          <div class="screening-result review" id="screeningResult" aria-live="polite" aria-atomic="true">
+            <span class="screening-status" id="screeningStatus">Review</span>
+            <p id="screeningReason">Add both images and required sample metadata to assess this field screen.</p>
+          </div>
+          <p class="screening-notice" id="screeningRecommendation">Complete the field screen; use chemistry and selective Raman review when indicated by the wider evidence.</p>
+          <p class="screening-notice">Field image screening only. Image features and simple capture-review cutoffs are uncalibrated during development. They do not directly measure or determine Fixed Carbon, H/C, O/C, CDI, permanence, or carbon removal. “Normal” means no configured image-capture flags were detected; it is not a batch acceptance or quality claim.</p>
+          <div class="screening-actions">
+            <button class="btn btn-primary" id="updateScreeningRecord" type="button">Update Batch Record</button>
+            <button class="btn btn-ghost" id="requestScreeningReview" type="button">Review chemistry / Raman next</button>
+          </div>
+          <p class="screening-update" id="screeningUpdateStatus" role="status" aria-live="polite"></p>
+          <p class="screening-helper">Image measurements are simple descriptive features for calibration; lighting, exposure, camera processing, reagent and preparation can affect them.</p>
+        </div>
+      </details>
+        </div>
+      </details>
+    </section>
+
+    <section class="batch-history" aria-labelledby="batchHistoryTitle">
+      <div class="batch-history-head">
+        <div><h3 id="batchHistoryTitle">Batch History</h3><p>Records generated on this device are listed here and stored locally in this browser.</p></div>
+        <button class="history-clear" id="clearBatchHistory" type="button">Clear history</button>
+      </div>
+      <div class="history-scroll" role="region" aria-label="Batch history table" tabindex="0">
+        <table class="history-table">
+          <thead><tr><th>Batch ID</th><th>Date</th><th>Status</th><th>CDI / Screen</th><th>QA/QC</th><th>Next Action</th></tr></thead>
+          <tbody id="batchHistoryBody"><tr><td class="history-empty" colspan="6">No batch records yet. Generate a Batch Record to add one.</td></tr></tbody>
+        </table>
+      </div>
+      <p class="batch-record-status" id="batchRecordStatus" role="status" aria-live="polite"></p>
+    </section>
+
+    <div class="evidence-flow" id="evidenceJourney" aria-label="Interactive Biochar Arabia evidence ladder">
+      <div class="journey-topline">
+        <div>
+          <div class="journey-kicker">Interactive evidence journey</div>
+          <div class="journey-heading">Follow one batch from field screening to a verification-ready record.</div>
+        </div>
+        <button class="journey-toggle" id="journeyToggle" type="button" aria-pressed="false">Pause animation</button>
+      </div>
+
+      <div class="journey-track" role="group" aria-label="Evidence journey steps">
+        <button class="journey-step active" id="journey-step-screen" type="button" aria-pressed="true" data-step="screen">
+          <span class="journey-number">01</span><span>Field Screening</span>
+        </button>
+        <span class="journey-arrow">→</span>
+        <button class="journey-step" id="journey-step-chemistry" type="button" aria-pressed="false" data-step="chemistry">
+          <span class="journey-number">02</span><span>Chemistry + CDI</span>
+        </button>
+        <span class="journey-arrow">→</span>
+        <button class="journey-step" id="journey-step-qaqc" type="button" aria-pressed="false" data-step="qaqc">
+          <span class="journey-number">03</span><span>QA/QC</span>
+        </button>
+        <span class="journey-arrow">→</span>
+        <button class="journey-step" id="journey-step-raman" type="button" aria-pressed="false" data-step="raman">
+          <span class="journey-number">04</span><span>Raman Fingerprint</span>
+        </button>
+        <span class="journey-arrow">→</span>
+        <button class="journey-step" id="journey-step-decision" type="button" aria-pressed="false" data-step="decision">
+          <span class="journey-number">05</span><span>MRV Decision</span>
+        </button>
+        <span class="journey-arrow">→</span>
+        <button class="journey-step" id="journey-step-record" type="button" aria-pressed="false" data-step="record">
+          <span class="journey-number">06</span><span>Verification-Ready Record</span>
+        </button>
+      </div>
+
+      <div class="journey-progress" role="progressbar" aria-label="Evidence journey progress" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><span id="journeyProgress"></span></div>
+
+      <div class="journey-detail" id="journeyDetail" role="region" aria-live="off" aria-atomic="true" aria-labelledby="journey-step-screen">
+        <div class="journey-detail-icon" id="journeyIcon">◎</div>
+        <div>
+          <div class="journey-detail-label" id="journeyLabel">01 · Field Screening</div>
+          <h3 id="journeyTitle">Capture the batch before deeper testing.</h3>
+          <p id="journeyText">Standardized field images and batch metadata create an early record and help flag unusual samples for further assessment.</p>
+        </div>
+        <div class="journey-status" id="journeyStatus">EARLY SCREEN</div>
+      </div>
+    </div>
+
+    <div id="mrv" class="mrv-panel">
+      <div class="eyebrow">MRV Intelligence</div>
+      <h2>One batch. Multiple evidence layers. One traceable decision.</h2>
+      <p>We organize the evidence, show uncertainty, and guide the next step without claiming to certify carbon credits or replace independent verification.</p>
+      <div class="mrv-values">
+        <div class="mrv-value"><b>TRACEABLE</b><span>Batch-level evidence</span></div>
+        <div class="mrv-value"><b>CLEARER</b><span>Next-step decisions</span></div>
+        <div class="mrv-value"><b>TRANSPARENT</b><span>Evidence and decision rationale</span></div>
+      </div>
+      <div class="mrv-visual">
+        <figure class="visual-frame">
+          <img src="assets/image2.png" alt="Concept illustration of a biochar evidence and verification-readiness workflow, with illustrative interface panels and placeholder status labels." width="4000" height="4000" loading="lazy" decoding="async">
+          <span class="visual-flag">Interface concept · not a live result</span>
+        </figure>
+        <div class="mrv-visual-copy">
+          <div class="eyebrow">The verification-readiness layer</div>
+          <h3>Organize evidence. Make limits clear.</h3>
+          <p>The platform is being developed to bring batch identity, process context, selected chemistry, QA/QC findings, uncertainty, optional Raman descriptors and decision rationale into a structured record for review.</p>
+          <ul class="visual-points">
+            <li><strong>Can organize:</strong> traceable source inputs, quality checks, evidence gaps and next-action context.</li>
+            <li><strong>Does not certify:</strong> carbon removals, permanence, credits or registry eligibility.</li>
+            <li><strong>Does not replace:</strong> project standards, registry processes, laboratories or independent verifiers.</li>
+          </ul>
+          <p class="visual-disclaimer">The image is a product concept, not a deployed dashboard. Any scores, removal quantities, permanence durations, “verified” or “issued” labels shown are illustrative placeholders and do not represent validation results, approvals or issued credits. Permanence is not directly measured by field screening.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="final">
+  <div class="wrap">
+    <div class="eyebrow">Early access + partnerships</div>
+    <h2>Building better evidence for scalable biochar carbon removal.</h2>
+    <p>We are looking to connect with biochar producers, project developers, laboratories, MRV partners and investors interested in shaping the next stage.</p>
+    <div class="final-actions">
+      <a class="btn btn-primary" href="mailto:biochar.arabia@gmail.com?subject=Biochar%20Arabia%20Early%20Access">Request Early Access <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="mailto:biochar.arabia@gmail.com?subject=Biochar%20Arabia%20Partnership">Partner With Us</a>
+    </div>
+    <p class="small" style="margin-top:18px">Or email <a href="mailto:biochar.arabia@gmail.com"><strong>biochar.arabia@gmail.com</strong></a>.</p>
+  </div>
+</section>
+</main>
+
+<section class="recognition-strip" aria-labelledby="recognitionTitle">
+  <div class="wrap recognition-inner">
+    <div class="recognition-label">RECOGNITION</div>
+    <h2 class="recognition-title" id="recognitionTitle">Mission Innovation SMART-CDR Competition 2026</h2>
+    <p class="recognition-copy">Developed through the Mission Innovation SMART-CDR Competition 2026.<br>Advancing practical MRV for biochar carbon removal.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <a class="brand" href="#top" aria-label="Biochar Arabia home"><img class="brand-logo" src="assets/logo.png" alt="Biochar Arabia" width="1536" height="1024" loading="lazy"></a>
+    <div>Chemistry × MRV × Carbon Removal</div>
+    <div>In development and validation.</div>
+  </div>
+</footer>
+<section class="evidence-report" id="evidenceReport" aria-hidden="true"></section>
+
+<script>
+const revealItems=document.querySelectorAll('.metric,.flow,.science-card,.platform-stage,.mrv-panel');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      if(!reduceMotion)e.target.animate(
+        [{opacity:0,transform:'translateY(18px)'},{opacity:1,transform:'translateY(0)'}],
+        {duration:620,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'}
+      );
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.12});
+revealItems.forEach(i=>io.observe(i));
+
+const menuButton=document.querySelector('.hamburger');
+const primaryNavigation=document.getElementById('primary-navigation');
+function closeNavigation(){
+  primaryNavigation.classList.remove('is-open');
+  menuButton.setAttribute('aria-expanded','false');
+  menuButton.setAttribute('aria-label','Open navigation');
+  menuButton.textContent='☰';
+}
+menuButton.addEventListener('click',()=>{
+  const isOpen=menuButton.getAttribute('aria-expanded')==='true';
+  primaryNavigation.classList.toggle('is-open',!isOpen);
+  menuButton.setAttribute('aria-expanded',String(!isOpen));
+  menuButton.setAttribute('aria-label',isOpen?'Open navigation':'Close navigation');
+  menuButton.textContent=isOpen?'☰':'×';
+});
+primaryNavigation.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNavigation));
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&menuButton.getAttribute('aria-expanded')==='true'){
+    closeNavigation();
+    menuButton.focus();
+  }
+});
+
+const layerData={
+  cdi:{
+    label:'Layer 01 · Routine assessment',
+    title:'Chemistry first. Clearer decisions.',
+    text:'CDI organizes selected chemistry proxies into a transparent screening layer while QA/QC remains visible and separate from the score.',
+    points:['Batch chemistry in one structured view','Transparent CDI score and operational grade','QA/QC and uncertainty remain visible'],
+    signals:[
+      ['Fixed Carbon / VM','Chemistry proxy','READY','ok'],
+      ['H/C + O/C','Supporting evidence','READY','ok'],
+      ['QA/QC','Separate confidence layer','CHECK','warn'],
+      ['Next Action','Proceed · Repeat · Confirm · Review','GUIDED','ok']
+    ],
+    next:'screen'
+  },
+  screen:{
+    label:'Layer 02 · Early field screening',
+    title:'Screen early. Capture evidence consistently.',
+    text:'Spray–Shine–Snap is designed to capture standardized field images and metadata that can flag unusual samples for deeper assessment.',
+    points:['Standardized sample and image capture','Batch-linked visual metadata','Supports triage; does not directly measure permanence'],
+    signals:[
+      ['Sample ID','Linked to batch record','CAPTURED','ok'],
+      ['365 nm UV Image','Standardized field image','CAPTURED','ok'],
+      ['Image Features','Brightness · texture · distribution','SCREEN','warn'],
+      ['Next Action','Continue to chemistry or deeper review','GUIDED','ok']
+    ],
+    next:'raman'
+  },
+  raman:{
+    label:'Layer 03 · Selective confidence',
+    title:'Use structural evidence when uncertainty demands it.',
+    text:'Raman is a selective confidence layer for borderline, unusual or changed-process batches rather than a universal permanence test.',
+    points:['D/G bands and structural descriptors','Compare current batch with relevant references','Trigger only when stronger evidence is justified'],
+    signals:[
+      ['D + G Bands','Structural descriptors','READ','ok'],
+      ['ID/IG + Band Shape','Contextual fingerprint','COMPARE','ok'],
+      ['Batch Comparison','Reference consistency','CHECK','warn'],
+      ['MRV Action','Confirm · Repeat · Review','GUIDED','ok']
+    ],
+    next:'cdi'
+  }
+};
+
+const cards=[...document.querySelectorAll('.science-card')];
+const stageLabel=document.getElementById('stageLabel');
+const stageTitle=document.getElementById('stageTitle');
+const stageText=document.getElementById('stageText');
+const stagePoints=document.getElementById('stagePoints');
+const signalStack=document.getElementById('signalStack');
+
+function setLayer(key){
+  const d=layerData[key];
+  cards.forEach(c=>{
+    const active=c.dataset.layer===key;
+    c.classList.toggle('active',active);
+    c.setAttribute('aria-pressed',active?'true':'false');
+  });
+  stageLabel.textContent=d.label;
+  stageTitle.textContent=d.title;
+  stageText.textContent=d.text;
+  stagePoints.innerHTML=d.points.map(p=>`<div class="stage-point"><i>✓</i><span>${p}</span></div>`).join('');
+  signalStack.innerHTML=d.signals.map(s=>`<div class="signal"><div><strong>${s[0]}</strong><br><span>${s[1]}</span></div><div class="${s[3]}">${s[2]}</div></div>`).join('');
+  document.querySelector('[data-next]').dataset.next=d.next;
+}
+
+cards.forEach(card=>{
+  card.addEventListener('click',()=>setLayer(card.dataset.layer));
+  card.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();setLayer(card.dataset.layer);}
+  });
+});
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('[data-next]');
+  if(btn)setLayer(btn.dataset.next);
+});
+
+
+// Interactive evidence journey
+const journeyData={
+  screen:{icon:'◎',label:'01 · Field Screening',title:'Capture the batch before deeper testing.',text:'Standardized field images and batch metadata create an early record and help flag unusual samples for further assessment.',status:'EARLY SCREEN',layer:'screen'},
+  chemistry:{icon:'Σ',label:'02 · Chemistry + CDI',title:'Turn chemistry into a transparent screening view.',text:'Selected chemistry proxies are organized into CDI so the batch can be assessed consistently without hiding the underlying evidence.',status:'ROUTINE ASSESSMENT',layer:'cdi'},
+  qaqc:{icon:'✓',label:'03 · QA/QC',title:'Keep data quality visible.',text:'Completeness, repeatability and uncertainty are checked separately so a strong score cannot mask weak or inconsistent evidence.',status:'QUALITY CHECK',layer:'cdi'},
+  raman:{icon:'≈',label:'04 · Raman Fingerprint',title:'Add structural evidence selectively.',text:'Raman descriptors provide a structural fingerprint when a batch is borderline, unusual, changed-process, or needs stronger traceability.',status:'CONFIDENCE LAYER',layer:'raman'},
+  decision:{icon:'↳',label:'05 · MRV Decision',title:'Translate evidence into the next action.',text:'The combined evidence supports a clear pathway such as proceed, repeat measurement, request confirmation, or expert review.',status:'DECISION SUPPORT',layer:null},
+  record:{icon:'◇',label:'06 · Verification-Ready Record',title:'Compile one traceable batch record.',text:'Batch identity, chemistry, QA/QC, structural evidence and decision rationale are organized for downstream independent review.',status:'READY FOR REVIEW',layer:null}
+};
+const journeyOrder=['screen','chemistry','qaqc','raman','decision','record'];
+const journeyButtons=[...document.querySelectorAll('.journey-step')];
+const journeyBox=document.getElementById('evidenceJourney');
+const journeyProgress=document.getElementById('journeyProgress');
+const journeyToggle=document.getElementById('journeyToggle');
+let journeyIndex=0;
+let journeyPaused=reduceMotion;
+let journeyTimer=null;
+if(journeyPaused){
+  journeyToggle.textContent='Play animation';
+  journeyToggle.setAttribute('aria-pressed','true');
+}
+
+function showJourneyStep(key, syncLayer=true){
+  const d=journeyData[key];
+  journeyIndex=journeyOrder.indexOf(key);
+  journeyButtons.forEach(btn=>{
+    const on=btn.dataset.step===key;
+    btn.classList.toggle('active',on);
+    btn.setAttribute('aria-pressed',on?'true':'false');
+  });
+  document.getElementById('journeyIcon').textContent=d.icon;
+  document.getElementById('journeyLabel').textContent=d.label;
+  document.getElementById('journeyTitle').textContent=d.title;
+  document.getElementById('journeyText').textContent=d.text;
+  document.getElementById('journeyStatus').textContent=d.status;
+  journeyProgress.style.width=((journeyIndex+1)/journeyOrder.length*100)+'%';
+  journeyProgress.parentElement.setAttribute('aria-valuenow',String(journeyIndex+1));
+  document.getElementById('journeyDetail').setAttribute('aria-labelledby',`journey-step-${key}`);
+  document.getElementById('journeyDetail').setAttribute('aria-live',syncLayer?'polite':'off');
+  const detail=document.querySelector('.journey-detail');
+  if(!reduceMotion)detail.animate([{opacity:.6,transform:'translateY(4px)'},{opacity:1,transform:'translateY(0)'}],{duration:260,easing:'ease-out'});
+  if(syncLayer && d.layer) setLayer(d.layer);
+}
+function startJourney(){
+  clearInterval(journeyTimer);
+  if(!journeyPaused&&!document.hidden){
+    journeyTimer=setInterval(()=>{
+      journeyIndex=(journeyIndex+1)%journeyOrder.length;
+      showJourneyStep(journeyOrder[journeyIndex],false);
+    },3800);
+  }
+}
+journeyButtons.forEach(btn=>btn.addEventListener('click',()=>{
+  showJourneyStep(btn.dataset.step,true);
+  startJourney();
+}));
+journeyToggle.addEventListener('click',()=>{
+  journeyPaused=!journeyPaused;
+  journeyToggle.textContent=journeyPaused?'Play animation':'Pause animation';
+  journeyToggle.setAttribute('aria-pressed',journeyPaused?'true':'false');
+  startJourney();
+});
+document.addEventListener('visibilitychange',startJourney);
+startJourney();
+
+const navLinks=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+const sections=[...document.querySelectorAll('#why,#platform,#mrv,#contact')];
+const navObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      navLinks.forEach(a=>a.classList.toggle('nav-active',a.getAttribute('href')==='#'+entry.target.id));
+    }
+  });
+},{rootMargin:'-35% 0px -55% 0px'});
+sections.forEach(s=>navObserver.observe(s));
+
+// Animated metrics for Verification Gap
+const gapSection=document.getElementById('why');
+const counters=[...document.querySelectorAll('.count-up')];
+const metricCards=[...document.querySelectorAll('.metric')];
+let metricLoopActive=false;
+let metricLoopRunning=false;
+let metricLoopGeneration=0;
+function animateCounter(el,duration=1400){
+  const target=Number(el.dataset.target||0);
+  const suffix=el.dataset.suffix||'';
+  const start=performance.now();
+  const card=el.closest('.metric');
+  card?.classList.add('is-counting');
+  return new Promise(resolve=>{
+  function tick(now){
+    const progress=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-progress,3);
+    el.textContent=Math.round(target*eased)+suffix;
+    if(progress<1) requestAnimationFrame(tick);
+    else resolve();
+  }
+  requestAnimationFrame(tick);
+  });
+}
+function resetMetrics(){
+  counters.forEach(el=>{el.textContent='0'+(el.dataset.suffix||'');});
+  metricCards.forEach(card=>card.classList.remove('is-counting'));
+}
+async function runMetricLoop(){
+  if(!metricLoopActive||reduceMotion||metricLoopRunning)return;
+  metricLoopRunning=true;
+  const generation=++metricLoopGeneration;
+  const wait=duration=>new Promise(resolve=>setTimeout(resolve,duration));
+  for(let i=0;i<counters.length;i++){
+    if(!metricLoopActive||generation!==metricLoopGeneration){metricLoopRunning=false;return;}
+    await animateCounter(counters[i]);
+    await wait(950);
+  }
+  await wait(2600);
+  if(metricLoopActive&&generation===metricLoopGeneration){resetMetrics();metricLoopRunning=false;runMetricLoop();}
+  else metricLoopRunning=false;
+}
+if(gapSection && counters.length){
+  const counterObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      metricLoopActive=entry.isIntersecting&&!document.hidden;
+      if(metricLoopActive&&![...metricCards].some(card=>card.classList.contains('is-counting')))runMetricLoop();
+      if(!metricLoopActive){metricLoopGeneration++;metricCards.forEach(card=>card.classList.remove('is-counting'));}
+    });
+  },{threshold:.35});
+  counterObserver.observe(gapSection);
+  document.addEventListener('visibilitychange',()=>{
+    metricLoopActive=gapSection.getBoundingClientRect().top<innerHeight&&gapSection.getBoundingClientRect().bottom>0&&!document.hidden;
+    if(metricLoopActive)runMetricLoop();
+    else{metricLoopGeneration++;metricCards.forEach(card=>card.classList.remove('is-counting'));}
+  });
+}
+
+// Provisional literature-threshold mapping; retain validation status in all UI.
+const CDI_SCORE_TABLES={
+  fixedCarbon:{direction:'higher',thresholds:[[80,100],[70,85],[60,70],[50,55],[40,40]],fallback:25},
+  volatileMatter:{direction:'lower',thresholds:[[10,100],[20,80],[35,60],[50,40]],fallback:20},
+  hc:{direction:'lower',thresholds:[[.10,100],[.30,85],[.50,70],[.70,55]],fallback:40},
+  oc:{direction:'lower',thresholds:[[.05,100],[.15,85],[.30,70],[.50,55]],fallback:40},
+  raman:{direction:'lower',thresholds:[[.80,100],[1.00,85],[1.30,70],[1.60,55]],fallback:40}
+};
+const CDI_WEIGHTS=Object.freeze({fixedCarbon:.20,volatileMatter:.20,hc:.20,oc:.15,raman:.25});
+const CDI_PROXY_META={
+  fixedCarbon:{label:'Fixed Carbon',inputId:'calcFixedCarbon',unit:'%'},
+  volatileMatter:{label:'Volatile Matter',inputId:'calcVolatileMatter',unit:'%'},
+  hc:{label:'H/C',inputId:'calcHC',unit:'ratio'},
+  oc:{label:'O/C',inputId:'calcOC',unit:'ratio'},
+  raman:{label:'Raman Iᴅ/Iɢ',inputId:'calcRaman',unit:'ratio'}
+};
+const RAMAN_QA_KEY='ramanIdig';
+const RAMAN_QA_LABEL='Raman ID/IG';
+const calcReplicates=document.getElementById('calcReplicates');
+const calcProxyInputs=[...document.querySelectorAll('#calcInputPanel [data-proxy]')];
+const calcInputIds=['calcBatchId','calcOperator','calcDate',...calcProxyInputs.map(input=>input.id)];
+let replicateCount=0;
+let lastCalculation=null;
+let linkedRamanBatchId=document.getElementById('calcBatchId').value.trim();
+let linkedScreeningBatchId=document.getElementById('calcBatchId').value.trim();
+let activeRamanTriggerReason='';
+const smartScreeningState={normalFile:null,uvFile:null,normalUrl:'',uvUrl:'',normalFeatures:null,uvFeatures:null,status:'Review',reason:'Add both images and required sample metadata to assess this field screen.',recommendation:'Complete the field screen; use chemistry and selective Raman review when indicated by the wider evidence.'};
+const screeningAnalysisVersion={normal:0,uv:0};
+let screeningAnalysisPromise=Promise.resolve();
+
+function localDateValue(){
+  const now=new Date();
+  now.setMinutes(now.getMinutes()-now.getTimezoneOffset());
+  return now.toISOString().slice(0,10);
+}
+document.getElementById('calcDate').value=localDateValue();
+function currentDateTimeLocal(){
+  const now=new Date();
+  now.setMinutes(now.getMinutes()-now.getTimezoneOffset());
+  return now.toISOString().slice(0,16);
+}
+document.getElementById('screeningDateTime').value=currentDateTimeLocal();
+
+function readNumber(input){
+  if(!input || input.value.trim()==='')return null;
+  const value=Number(input.value);
+  return Number.isFinite(value)&&value>=0&&input.validity.valid?value:null;
+}
+function readMeasurement(container,operator,date,isPrimary=false){
+  const values={};
+  Object.keys(CDI_PROXY_META).forEach(key=>{
+    const selector=isPrimary?`#${CDI_PROXY_META[key].inputId}`:`[data-proxy="${key}"]`;
+    values[key]=readNumber(container.querySelector(selector));
+  });
+  return {values,operator:(operator||'').trim(),date:date||'',isPrimary};
+}
+function getMeasurements(){
+  const primary=readMeasurement(document,document.getElementById('calcOperator').value,document.getElementById('calcDate').value,true);
+  const fingerprintRatio=readNumber(document.getElementById('ramanPrimaryRatio'));
+  if(fingerprintRatio!==null)primary.values.raman=fingerprintRatio;
+  primary.values[RAMAN_QA_KEY]=primary.values.raman;
+  const repeats=[...calcReplicates.querySelectorAll('.replicate-card')].map(card=>readMeasurement(
+    card,
+    card.querySelector('[data-meta="operator"]').value,
+    card.querySelector('[data-meta="date"]').value
+  ));
+  repeats.forEach(record=>{record.values[RAMAN_QA_KEY]=record.values.raman;});
+  [...document.querySelectorAll('.raman-replicate')].forEach(card=>{
+    const ratio=readNumber(card.querySelector('[data-raman-replicate]'));
+    if(ratio!==null)repeats.push({values:{...Object.fromEntries(Object.keys(CDI_PROXY_META).map(key=>[key,null])),[RAMAN_QA_KEY]:ratio,raman:ratio},operator:'',date:'',isRamanRepeat:true});
+  });
+  return [primary,...repeats];
+}
+function formatRaw(value,key){
+  if(value===null||value===undefined)return '—';
+  return `${Number(value.toFixed(3))}${CDI_PROXY_META[key].unit==='%'?'%':''}`;
+}
+function mapProxyScore(key,value){
+  const rule=CDI_SCORE_TABLES[key];
+  if(!rule||value===null)return null;
+  const match=rule.thresholds.find(([threshold])=>rule.direction==='higher'?value>=threshold:value<=threshold);
+  return match?match[1]:rule.fallback;
+}
+function gradeForScore(score){
+  if(score>=85)return 'A';
+  if(score>=70)return 'B';
+  if(score>=55)return 'C';
+  if(score>=40)return 'D';
+  return 'E';
+}
+function calculateRecordScore(record){
+  const scores={};
+  for(const key of Object.keys(CDI_PROXY_META)){
+    const value=record.values[key];
+    if(value===null)return null;
+    scores[key]=mapProxyScore(key,value);
+    if(scores[key]===null)return null;
+  }
+  const cdi=Object.keys(CDI_WEIGHTS).reduce((sum,key)=>sum+scores[key]*CDI_WEIGHTS[key],0);
+  return {score:cdi,grade:gradeForScore(cdi),proxyScores:scores};
+}
+async function extractImageFeatures(file){
+  const bitmap=await createImageBitmap(file);
+  const sourceWidth=bitmap.width,sourceHeight=bitmap.height;
+  const scale=Math.min(1,256/Math.max(sourceWidth,sourceHeight));
+  const width=Math.max(1,Math.round(sourceWidth*scale));
+  const height=Math.max(1,Math.round(sourceHeight*scale));
+  const canvas=document.createElement('canvas');
+  canvas.width=width;canvas.height=height;
+  const context=canvas.getContext('2d',{willReadFrequently:true});
+  if(!context){bitmap.close();throw new Error('Image analysis is not available in this browser.');}
+  context.drawImage(bitmap,0,0,width,height);bitmap.close();
+  const pixels=context.getImageData(0,0,width,height).data;
+  const luminance=new Float32Array(width*height);
+  let totalLuma=0,totalR=0,totalG=0,totalB=0,totalSaturation=0,blueGreenDominant=0,darkPixels=0,clippedPixels=0;
+  for(let i=0,p=0;i<pixels.length;i+=4,p++){
+    const r=pixels[i]/255,g=pixels[i+1]/255,b=pixels[i+2]/255;
+    const luma=.2126*r+.7152*g+.0722*b;
+    const max=Math.max(r,g,b),min=Math.min(r,g,b);
+    luminance[p]=luma;totalLuma+=luma;totalR+=r;totalG+=g;totalB+=b;
+    totalSaturation+=max===0?0:(max-min)/max;
+    if((g+b)/2>r+.06)blueGreenDominant++;
+    if(luma<.04)darkPixels++;
+    if(luma>.96)clippedPixels++;
+  }
+  const count=width*height;
+  let gradient=0,gradientPairs=0;
+  for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+    const index=y*width+x;
+    if(x+1<width){gradient+=Math.abs(luminance[index]-luminance[index+1]);gradientPairs++;}
+    if(y+1<height){gradient+=Math.abs(luminance[index]-luminance[index+width]);gradientPairs++;}
+  }
+  const tileCols=Math.min(4,width),tileRows=Math.min(4,height),tileMeans=[];
+  for(let ty=0;ty<tileRows;ty++)for(let tx=0;tx<tileCols;tx++){
+    const x0=Math.floor(tx*width/tileCols),x1=Math.floor((tx+1)*width/tileCols);
+    const y0=Math.floor(ty*height/tileRows),y1=Math.floor((ty+1)*height/tileRows);
+    let sum=0,n=0;
+    for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++){sum+=luminance[y*width+x];n++;}
+    if(n)tileMeans.push(sum/n);
+  }
+  const tileMean=tileMeans.reduce((sum,value)=>sum+value,0)/tileMeans.length;
+  const tileSd=Math.sqrt(tileMeans.reduce((sum,value)=>sum+(value-tileMean)**2,0)/tileMeans.length);
+  return {
+    width:sourceWidth,
+    height:sourceHeight,
+    brightness:totalLuma/count*100,
+    meanRgb:{r:totalR/count*255,g:totalG/count*255,b:totalB/count*255},
+    meanSaturation:totalSaturation/count*100,
+    colorResponse:totalSaturation/count*100,
+    blueGreenDominantPercent:blueGreenDominant/count*100,
+    fluorescenceTileCv:tileMean?tileSd/tileMean*100:null,
+    textureGradient:gradientPairs?gradient/gradientPairs*100:null,
+    darkPercent:darkPixels/count*100,
+    clippedPercent:clippedPixels/count*100
+  };
+}
+function currentScreeningMetadata(){
+  return {
+    samplePreparation:document.getElementById('samplePreparation').value.trim(),
+    reagentDose:document.getElementById('screeningReagent').value.trim(),
+    operator:document.getElementById('screeningOperator').value.trim(),
+    dateTime:document.getElementById('screeningDateTime').value,
+    notes:document.getElementById('screeningNotes').value.trim()
+  };
+}
+function renderScreeningFeatures(){
+  const normal=smartScreeningState.normalFeatures,uv=smartScreeningState.uvFeatures;
+  document.getElementById('featureNormalBrightness').textContent=normal?`${normal.brightness.toFixed(1)}% mean luminance`:'Not assessed';
+  document.getElementById('featureColorResponse').textContent=normal?`${normal.colorResponse.toFixed(1)}% mean saturation · RGB ${Math.round(normal.meanRgb.r)}/${Math.round(normal.meanRgb.g)}/${Math.round(normal.meanRgb.b)}`:'Not assessed';
+  document.getElementById('featureFluorescence').textContent=uv?`${uv.blueGreenDominantPercent.toFixed(1)}% blue/green-dominant pixels · tile CV ${uv.fluorescenceTileCv===null?'—':uv.fluorescenceTileCv.toFixed(1)+'%'}`:'Not assessed';
+  document.getElementById('featureTexture').textContent=normal?`Normal ${normal.textureGradient.toFixed(1)}% · UV ${uv?uv.textureGradient.toFixed(1)+'%':'not assessed'}`:'Not assessed';
+}
+function updateScreeningAssessment(){
+  const batchId=document.getElementById('calcBatchId').value.trim();
+  document.getElementById('screeningLinkedBatch').textContent=`Batch: ${batchId||'not linked'}`;
+  const metadata=currentScreeningMetadata();
+  const missing=[];
+  if(!batchId)missing.push('Batch ID');
+  if(!smartScreeningState.normalFile)missing.push('normal sample image');
+  if(!smartScreeningState.uvFile)missing.push('365 nm UV image');
+  if(!metadata.samplePreparation)missing.push('sample-preparation metadata');
+  if(!metadata.reagentDose)missing.push('reagent/dose');
+  if(!metadata.operator)missing.push('operator');
+  if(!metadata.dateTime)missing.push('date/time');
+  let status='Review',reason='',recommendation='';
+  if(missing.length){
+    reason=`Screen incomplete. Add ${missing.join(', ')} to assess this sample. Missing information is not a negative sample result.`;
+    recommendation='Complete the capture. If visual concern remains, review with chemistry and/or selective Raman; do not reject from this screen.';
+  }else if(!smartScreeningState.normalFeatures||!smartScreeningState.uvFeatures){
+    reason='Images are present but descriptive image analysis is not available yet. No sample-level interpretation is made.';
+    recommendation='Retry image analysis or review the images with a qualified operator; use chemistry/Raman if concern remains.';
+  }else{
+    const flags=[];
+    for(const [name,features] of [['normal-light',smartScreeningState.normalFeatures],['UV',smartScreeningState.uvFeatures]]){
+      if(features.brightness<5)flags.push(`${name} image very dark`);
+      if(features.brightness>95)flags.push(`${name} image near-white/clipped`);
+      if(features.clippedPercent>25)flags.push(`${name} image has high clipped-pixel fraction`);
+    }
+    if(smartScreeningState.normalFeatures.textureGradient>24)flags.push('normal-light image has high texture/heterogeneity proxy');
+    if(smartScreeningState.uvFeatures.textureGradient>24)flags.push('UV image has high texture/heterogeneity proxy');
+    if(smartScreeningState.uvFeatures.fluorescenceTileCv>35)flags.push('UV image-response distribution is spatially variable');
+    status=flags.length?'Warning':'Normal';
+    reason=flags.length?`Visual/capture flags: ${flags.join('; ')}. These describe the images and sample appearance only; they do not establish chemical composition.`:'Both images and required metadata are present; no configured image-capture flags were detected. This is not a quality or durability determination.';
+    recommendation=flags.length?'Repeat/standardize the capture and review with batch chemistry; consider selective Raman fingerprinting if the concern remains. Do not automatically reject the batch.':'Proceed to the planned chemistry assessment; use Raman selectively when batch context or chemistry warrants it.';
+  }
+  smartScreeningState.status=status;
+  smartScreeningState.reason=reason;
+  smartScreeningState.recommendation=recommendation;
+  const nextAction=status==='Warning'?'Review chemistry / Raman':status==='Review'?'Complete screening; review chemistry / Raman if concern persists':'Proceed to planned chemistry assessment';
+  const result=document.getElementById('screeningResult');
+  result.classList.toggle('warning',status==='Warning');
+  result.classList.toggle('review',status==='Review');
+  document.getElementById('screeningStatus').textContent=status;
+  document.getElementById('screeningReason').textContent=reason;
+  document.getElementById('screeningRecommendation').textContent=recommendation;
+  renderScreeningFeatures();
+  return {status,reason,recommendation,nextAction,metadata,normalFeatures:smartScreeningState.normalFeatures,uvFeatures:smartScreeningState.uvFeatures,normalFileName:smartScreeningState.normalFile?.name||null,uvFileName:smartScreeningState.uvFile?.name||null};
+}
+async function handleScreeningImage(kind,file){
+  const stateKey=kind==='normal'?'normalFile':'uvFile';
+  const urlKey=kind==='normal'?'normalUrl':'uvUrl';
+  const featureKey=kind==='normal'?'normalFeatures':'uvFeatures';
+  const image=document.getElementById(kind==='normal'?'normalImagePreview':'uvImagePreview');
+  const caption=document.getElementById(kind==='normal'?'normalImageCaption':'uvImageCaption');
+  if(smartScreeningState[urlKey])URL.revokeObjectURL(smartScreeningState[urlKey]);
+  smartScreeningState[stateKey]=file||null;
+  smartScreeningState[urlKey]='';smartScreeningState[featureKey]=null;
+  if(!file){image.removeAttribute('src');image.alt=`${kind==='normal'?'Normal-light':'365 nanometre UV'} sample preview; no image selected`;caption.textContent=`${kind==='normal'?'Normal light':'365 nm UV'} · image not selected`;updateScreeningAssessment();return;}
+  const url=URL.createObjectURL(file);
+  smartScreeningState[urlKey]=url;image.src=url;image.alt=`${kind==='normal'?'Normal-light':'365 nanometre UV'} sample image preview: ${file.name}`;caption.textContent=`${kind==='normal'?'Normal light':'365 nm UV'} · ${file.name}`;
+  const version=++screeningAnalysisVersion[kind];
+  const task=(async()=>{
+    try{
+      smartScreeningState[featureKey]=await extractImageFeatures(file);
+      if(version===screeningAnalysisVersion[kind]){
+        updateScreeningAssessment();
+        document.getElementById('screeningUpdateStatus').textContent=`${kind==='normal'?'Normal-light':'UV'} image features updated for ${document.getElementById('calcBatchId').value.trim()||'current batch'}.`;
+      }
+    }catch(error){
+      if(version===screeningAnalysisVersion[kind]){smartScreeningState[featureKey]=null;updateScreeningAssessment();document.getElementById('screeningUpdateStatus').textContent=error.message||'Could not analyze this image.';}
+    }
+  })();
+  screeningAnalysisPromise=Promise.all([screeningAnalysisPromise,task]).then(()=>undefined);
+  updateScreeningAssessment();
+}
+function metricResult(name,value,threshold,status,detail){return {name,value,threshold,status,detail};}
+function calculateQaMetrics(measurements){
+  const metrics=[];
+  for(const key of Object.keys(CDI_PROXY_META)){
+    const values=measurements.map(record=>record.values[key]).filter(value=>value!==null);
+    if(values.length<2){
+      metrics.push(metricResult(`CV · ${CDI_PROXY_META[key].label}`,null,'≤10%','not-assessed',`Not assessed · ${values.length} valid observation${values.length===1?'':'s'}; at least 2 required.`));
+      continue;
+    }
+    const mean=values.reduce((sum,value)=>sum+value,0)/values.length;
+    const variance=values.reduce((sum,value)=>sum+Math.pow(value-mean,2),0)/(values.length-1);
+    const cv=mean===0?(variance===0?0:null):(Math.sqrt(variance)/Math.abs(mean))*100;
+    if(cv===null){
+      metrics.push(metricResult(`CV · ${CDI_PROXY_META[key].label}`,null,'≤10%','not-assessed','Not assessed · mean is zero while repeat values vary; CV is undefined.'));
+    }else{
+      const pass=cv<=10;
+      metrics.push(metricResult(`CV · ${CDI_PROXY_META[key].label}`,cv,'≤10%',pass?'pass':'fail',`${cv.toFixed(1)}% · ${pass?'within':'above'} threshold (${values.length} valid observations).`));
+    }
+  }
+
+  const scored=measurements.map(record=>({record,result:calculateRecordScore(record)})).filter(item=>item.result);
+  const gradeCounts={};
+  scored.forEach(item=>{gradeCounts[item.result.grade]=(gradeCounts[item.result.grade]||0)+1;});
+  if(scored.length<2){
+    metrics.push(metricResult('Grade agreement',null,'≥85%','not-assessed',`Not assessed · ${scored.length} complete scored measurement${scored.length===1?'':'s'}; at least 2 required.`));
+  }else{
+    const agreement=(Math.max(...Object.values(gradeCounts))/scored.length)*100;
+    const pass=agreement>=85;
+    metrics.push(metricResult('Grade agreement',agreement,'≥85%',pass?'pass':'fail',`${agreement.toFixed(1)}% of scored measurements share the most common grade (${scored.length} scored measurements).`));
+  }
+
+  function groupedDifference(label,groupBy,threshold,operator){
+    const groups=new Map();
+    scored.forEach(item=>{
+      const group=groupBy(item.record);
+      if(!group)return;
+      if(!groups.has(group))groups.set(group,[]);
+      groups.get(group).push(item.result.score);
+    });
+    const means=[...groups.values()].map(values=>values.reduce((sum,value)=>sum+value,0)/values.length);
+    if(means.length<2){
+      metrics.push(metricResult(label,null,operator,`not-assessed`,`Not assessed · scored measurements from at least 2 distinct ${label==='Operator difference'?'operators':'dates'} are required.`));
+      return;
+    }
+    const difference=Math.max(...means)-Math.min(...means);
+    const pass=difference<threshold;
+    metrics.push(metricResult(label,difference,operator,pass?'pass':'fail',`${difference.toFixed(1)} CDI points between group means (${means.length} groups).`));
+  }
+  groupedDifference('Operator difference',record=>record.operator,5,'<5 CDI points');
+  groupedDifference('Day difference',record=>record.date,3,'<3 CDI points');
+  metrics.push(metricResult('ICC',null,'≥0.85','not-assessed','Not assessed · requires a suitable multi-batch reliability design; repeats from one batch cannot establish ICC.'));
+  return metrics;
+}
+function setStatusClass(status){return status==='pass'?'pass':status==='fail'?'fail':status==='review'?'review':'';}
+function renderQa(metrics){
+  const target=document.getElementById('calcQaMetrics');
+  target.innerHTML=metrics.map(metric=>{
+    const label=metric.status==='pass'?'Within threshold':metric.status==='fail'?'Review needed':'Not assessed';
+    return `<div class="calc-qc-card"><strong>${metric.name}</strong><span>${metric.detail} Threshold: ${metric.threshold}.</span><b class="calc-qc-status ${setStatusClass(metric.status)}">${label}</b></div>`;
+  }).join('');
+  const assessed=metrics.filter(metric=>metric.status==='pass'||metric.status==='fail');
+  const failures=assessed.filter(metric=>metric.status==='fail').length;
+  const passed=assessed.length-failures;
+  const confidence=failures?'Review recommended':assessed.length?'Partially assessed':'Not assessed';
+  const detail=failures?`${failures} assessed check${failures===1?'':'s'} outside threshold; ${metrics.length-assessed.length} not assessed.`:assessed.length?`${passed} assessed check${passed===1?'':'s'} within threshold; ${metrics.length-assessed.length} not assessed.`:'No QA/QC metric could be assessed from the available data.';
+  document.getElementById('decisionConfidence').textContent=confidence;
+  return {metrics,confidence,detail,assessed:assessed.length,failures,passed};
+}
+function renderProxyRows(primary){
+  document.getElementById('proxyScoreRows').innerHTML=Object.keys(CDI_PROXY_META).map(key=>{
+    const measured=formatRaw(primary.values[key],key);
+    const proxyScore=mapProxyScore(key,primary.values[key]);
+    const score=proxyScore===null?'Not available':`${proxyScore.toFixed(1)} / 100`;
+    return `<tr><td>${CDI_PROXY_META[key].label}</td><td>${measured}</td><td>${score}</td><td>${(CDI_WEIGHTS[key]*100).toFixed(0)}%</td></tr>`;
+  }).join('');
+}
+function setDecision(primary,score,qa,ramanRepeatability){
+  const missing=Object.keys(CDI_PROXY_META).filter(key=>primary.values[key]===null);
+  const gradeNode=document.getElementById('decisionGrade');
+  const scoreNode=document.getElementById('decisionScore');
+  const batchId=document.getElementById('calcBatchId').value.trim();
+  const scoreLabel=document.getElementById('decisionScoreLabel');
+  const chemistryStatus=document.getElementById('chemistryStatus');
+  const ramanStatus=document.getElementById('ramanStatus');
+  const decisionBatch=document.getElementById('decisionBatch');
+  const reason=document.getElementById('decisionReason');
+  const action=document.getElementById('decisionAction');
+  const actionDetail=document.getElementById('decisionActionDetail');
+  const why=document.getElementById('whyResultBody');
+  decisionBatch.textContent=batchId||'Batch ID not provided';
+  ramanStatus.textContent=primary.values.raman===null?'Required · not entered':`Measured · ${formatRaw(primary.values.raman,'raman')}`;
+  if(missing.length){
+    scoreNode.textContent='—';gradeNode.textContent='—';gradeNode.setAttribute('aria-label','Grade unavailable');
+    scoreLabel.textContent='Chemistry Screen';chemistryStatus.textContent='Preliminary Screen';
+    const names=missing.map(key=>CDI_PROXY_META[key].label).join(', ');
+    const actionType=qa.failures?'Repeat Measurement':missing.length===1&&missing[0]==='raman'?'Raman Fingerprint':'Repeat Measurement';
+    reason.textContent=`Preliminary screen — additional evidence required. Missing measured input: ${names}.${qa.failures?` ${qa.failures} assessed QA/QC check${qa.failures===1?' is':'s are'} also outside threshold.`:''} No final CDI or grade is calculated.`;
+    action.textContent=actionType;
+    actionDetail.textContent=qa.failures?`Repeat or confirm affected measurements, then add measured ${names} values.`:`Provide measured ${names} values; do not substitute estimates.`;
+    why.innerHTML=`<p>No final CDI or grade is calculated because these required raw inputs are missing: <strong>${names}</strong>. Any available proxy scores appear below for transparency only; the CDI weights are never renormalized.</p>`;
+    chemistryStatus.textContent='Preliminary Screen';
+    return {status:'preliminary',evidenceStatus:'Preliminary Screen · additional evidence required',decision:actionType,missing,score:null,grade:null,rationale:reason.textContent};
+  }
+  if(!score){
+    scoreNode.textContent='—';gradeNode.textContent='—';gradeNode.setAttribute('aria-label','Grade unavailable');
+    scoreLabel.textContent='Chemistry Screen';chemistryStatus.textContent='Preliminary Screen';
+    reason.textContent='The configured provisional model could not score one or more required inputs. No final CDI or grade is shown.';
+    action.textContent='Expert Review';
+    actionDetail.textContent='Confirm all five measured values are valid and within the supported model range.';
+    why.innerHTML='<p>The five-proxy scoring model did not return a score for every required input. No partial weights are renormalized and no final CDI is displayed.</p>';
+    chemistryStatus.textContent='Preliminary Screen';
+    return {status:'scoring-unavailable',evidenceStatus:'Preliminary Screen · check inputs',decision:'Expert Review',missing:[],score:null,grade:null,rationale:reason.textContent};
+  }
+  scoreLabel.textContent='Full CDI';chemistryStatus.textContent='Full CDI calculated';
+  scoreNode.textContent=score.score.toFixed(1);gradeNode.textContent=score.grade;gradeNode.setAttribute('aria-label',`Grade ${score.grade}`);
+  const weakest=Object.keys(score.proxyScores).sort((a,b)=>score.proxyScores[a]-score.proxyScores[b])[0];
+  const weakestName=CDI_PROXY_META[weakest].label;
+  const weakestScore=score.proxyScores[weakest];
+  let actionType;
+  let rationale=`${weakestName} is the lowest proxy score (${weakestScore.toFixed(1)} / 100) and the main driver of this screening result.`;
+  if(qa.failures){
+    actionType='Repeat Measurement';
+    rationale+=` ${qa.failures} assessed QA/QC check${qa.failures===1?' is':'s are'} outside threshold; CDI is unchanged.`;
+    actionDetail.textContent='Repeat or confirm the affected measurements; the CDI score itself is unchanged.';
+  }else if(ramanRepeatability?.flag){
+    actionType='Repeat Measurement';
+    rationale+=` Raman repeatability CV is ${ramanRepeatability.cv.toFixed(1)}%, above the 7% review flag; this does not change CDI.`;
+    actionDetail.textContent='Review the Raman readings for heterogeneity and repeat/confirm measurements; CDI is unchanged.';
+  }else if(score.grade==='D'||score.grade==='E'){
+    actionType='Expert Review';
+    rationale+=` Grade ${score.grade} falls in the lower screening bands and warrants contextual expert review.`;
+    actionDetail.textContent='Review process context, source measurements and applicable project requirements with a qualified expert.';
+  }else if(score.grade==='C'&&primary.values.raman===null){
+    actionType='Raman Fingerprint';
+    rationale+=` Grade C is a mid-band screening result; selective structural evidence may help clarify the batch.`;
+    actionDetail.textContent='Add a measured Raman fingerprint, then review the updated batch evidence.';
+  }else if(!qa.assessed){
+    actionType='Expert Review';
+    rationale+=' CDI is complete, but QA/QC could not be assessed from the available replicate data.';
+    actionDetail.textContent='Review evidence quality and replicate coverage before proceeding.';
+  }else{
+    actionType='Proceed';
+    actionDetail.textContent='Continue organizing the batch evidence for downstream independent review.';
+  }
+  reason.textContent=rationale;
+  action.textContent=actionType;
+  why.innerHTML=`<p><strong>Weighted calculation:</strong> ${Object.keys(CDI_WEIGHTS).map(key=>`${CDI_WEIGHTS[key].toFixed(2)} × ${score.proxyScores[key]}`).join(' + ')} = ${score.score.toFixed(2)}; displayed as ${score.score.toFixed(1)}. Grade bands use the unrounded CDI.</p><p><strong>Grade bands:</strong> A ≥85; B ≥70 and &lt;85; C ≥55 and &lt;70; D ≥40 and &lt;55; E &lt;40.</p>`;
+  return {status:'scored',evidenceStatus:'Full CDI · all five proxies present',decision:actionType,missing:[],score:score.score,grade:score.grade,proxyScores:score.proxyScores,rationale};
+}
+function updateCalculator(){
+  const measurements=getMeasurements();
+  const primary=measurements[0];
+  const score=calculateRecordScore(primary);
+  const qa=renderQa(calculateQaMetrics(measurements));
+  const ramanRepeatability=calculateRamanRepeatability(primary.values.raman);
+  const decision=setDecision(primary,score,qa,ramanRepeatability);
+  renderProxyRows(primary);
+  lastCalculation={batchId:document.getElementById('calcBatchId').value.trim(),measurements,decision,qa,score,weights:CDI_WEIGHTS,thresholdsConfigured:Object.keys(CDI_SCORE_TABLES).every(key=>CDI_SCORE_TABLES[key].thresholds.length>0)};
+  updateRamanAssessment(decision,primary,score);
+}
+function calculateRamanRepeatability(primaryFallback=null){
+  const primary=readNumber(document.getElementById('ramanPrimaryRatio'))??primaryFallback??readNumber(document.getElementById('calcRaman'));
+  const repeats=[...document.querySelectorAll('[data-raman-replicate]')].map(input=>readNumber(input)).filter(value=>value!==null);
+  const values=[primary,...repeats].filter(value=>value!==null);
+  if(values.length<2)return {status:'Not assessed',mean:null,sd:null,cv:null,flag:false,count:values.length};
+  const mean=values.reduce((sum,value)=>sum+value,0)/values.length;
+  const variance=values.reduce((sum,value)=>sum+Math.pow(value-mean,2),0)/(values.length-1);
+  const sd=Math.sqrt(variance);
+  const cv=mean===0?(sd===0?0:Infinity):(sd/Math.abs(mean))*100;
+  const flag=cv>7;
+  return {status:flag?'Review / heterogeneous sample':'Repeatability within 7% review threshold',mean,sd,cv,flag,count:values.length};
+}
+function updateRamanAssessment(decision=lastCalculation?.decision,primary=lastCalculation?.measurements?.[0],score=lastCalculation?.score){
+  const batchId=document.getElementById('calcBatchId').value.trim();
+  const ratio=readNumber(document.getElementById('ramanPrimaryRatio'))??primary?.values?.raman??null;
+  const ramanScore=mapProxyScore('raman',ratio);
+  const linkedBatch=document.getElementById('ramanLinkedBatch');
+  linkedBatch.textContent=`Batch: ${batchId||'not provided'}`;
+  const triggerButton=document.getElementById('openRamanAssessment');
+  const triggerReason=document.getElementById('ramanTriggerReason');
+  const triggered=decision?.decision==='Raman Fingerprint';
+  if(triggered)activeRamanTriggerReason=decision.rationale;
+  triggerButton.style.display=triggered?'inline-flex':'none';
+  if(triggered){
+    triggerReason.textContent=`Triggered: ${decision.rationale}`;
+    document.getElementById('ramanAssessment').open=true;
+  }else if(activeRamanTriggerReason){
+    triggerReason.textContent=`Raman trigger: ${activeRamanTriggerReason}`;
+  }else{
+    triggerReason.textContent=decision?.decision==='Repeat Measurement'?'Trigger: repeat or confirm the flagged batch measurements first.':'Trigger: selective follow-up; use when the chemistry screen is borderline or process context warrants it.';
+  }
+  const stats=calculateRamanRepeatability(primary?.values?.raman);
+  const statusNode=document.getElementById('ramanResultStatus');
+  const scoreNode=document.getElementById('ramanResultScore');
+  const idIgNode=document.getElementById('ramanResultIdIg');
+  const repeatNode=document.getElementById('ramanRepeatability');
+  const fullNode=document.getElementById('ramanFullCdi');
+  const gradeNode=document.getElementById('ramanFullGrade');
+  statusNode.textContent=ratio===null?'Awaiting valid ID/IG':'Assessed · provisional threshold';
+  idIgNode.textContent=ratio===null?'—':formatRaw(ratio,'raman');
+  scoreNode.textContent=ramanScore===null?'—':`${ramanScore} / 100`;
+  repeatNode.textContent=stats.status==='Not assessed'?'Not assessed':`${stats.status} · mean ${stats.mean.toFixed(3)}, SD ${stats.sd.toFixed(3)}, CV ${Number.isFinite(stats.cv)?stats.cv.toFixed(1)+'%':'undefined'}`;
+  repeatNode.parentElement.classList.toggle('alert',stats.flag);
+  const fullAvailable=!!score&&ratio!==null;
+  fullNode.textContent=fullAvailable?score.score.toFixed(1):'Awaiting all five proxies';
+  gradeNode.textContent=fullAvailable?score.grade:'—';
+  document.getElementById('ramanNextAction').textContent=document.getElementById('decisionAction').textContent;
+  document.getElementById('ramanReason').textContent=triggered?`Raman was triggered because ${decision.rationale} This structural descriptor is selective supporting evidence—not direct proof of permanence.`:ratio!==null?'Raman has been added as the fifth required proxy. The full CDI uses the fixed weights; repeatability is reported separately. Raman is not direct proof of permanence.':'Raman can be used selectively for borderline, unusual or changed-process batches. It is not a direct measurement or proof of permanence.';
+  const replicates=[...document.querySelectorAll('[data-raman-replicate]')].map(input=>input.value.trim()).filter(Boolean);
+  document.getElementById('fingerprintDetailsBody').textContent=[
+    `Batch ID: ${batchId||'not provided'}`,
+    `Why triggered: ${triggerReason.textContent}`,
+    `Primary ID/IG: ${ratio===null?'not entered':formatRaw(ratio,'raman')}`,
+    `Raman proxy score: ${ramanScore===null?'not assessed':`${ramanScore} / 100`}`,
+    `Replicate ID/IG values: ${replicates.length?replicates.join(', '):'none entered'}`,
+    `Mean: ${stats.mean===null?'not assessed':stats.mean.toFixed(3)} · SD: ${stats.sd===null?'not assessed':stats.sd.toFixed(3)} · CV: ${stats.cv===null?'not assessed':Number.isFinite(stats.cv)?stats.cv.toFixed(2)+'%':'undefined'}`,
+    `D position: ${document.getElementById('ramanDPosition').value||'not provided'} cm⁻¹ · G position: ${document.getElementById('ramanGPosition').value||'not provided'} cm⁻¹`,
+    `D width: ${document.getElementById('ramanDWidth').value||'not provided'} cm⁻¹ · G width: ${document.getElementById('ramanGWidth').value||'not provided'} cm⁻¹`,
+    `Notes: ${document.getElementById('ramanNotes').value.trim()||'none provided'}`
+  ].join('\n');
+  return {status:statusNode.textContent,ratio,score:ramanScore,repeatability:stats,triggered};
+}
+const BATCH_HISTORY_KEY='biocharArabia.batchHistory.v1';
+function loadBatchHistory(){
+  try{
+    const rows=JSON.parse(localStorage.getItem(BATCH_HISTORY_KEY)||'[]');
+    return Array.isArray(rows)?rows.filter(row=>row&&typeof row==='object'):[];
+  }catch{return [];}
+}
+function renderBatchHistory(){
+  const body=document.getElementById('batchHistoryBody');
+  const history=loadBatchHistory();
+  body.replaceChildren();
+  if(!history.length){
+    const row=document.createElement('tr');
+    const cell=document.createElement('td');
+    cell.className='history-empty';cell.colSpan=6;cell.textContent='No batch records yet. Generate a Batch Record to add one.';
+    row.append(cell);body.append(row);return;
+  }
+  history.slice().reverse().forEach(record=>{
+    const row=document.createElement('tr');
+    const values=[record.batchId||'Unspecified',record.generatedAt?new Date(record.generatedAt).toLocaleString():'—',record.screeningStatus?`Screening · ${record.screeningStatus}`:record.evidenceStatus||'—',record.cdiDisplay||'Preliminary Screen',record.qaStatus||'Not assessed',record.nextAction||'—'];
+    values.forEach(value=>{const cell=document.createElement('td');cell.textContent=String(value);row.append(cell);});
+    body.append(row);
+  });
+}
+function buildBatchRecord(generatedAt=new Date().toISOString()){
+  updateCalculator();
+  const primary=lastCalculation.measurements[0];
+  const ramanValues=[readNumber(document.getElementById('ramanPrimaryRatio'))??primary.values.raman,...[...document.querySelectorAll('[data-raman-replicate]')].map(input=>readNumber(input))].filter(value=>value!==null);
+  const repeatability=calculateRamanRepeatability(primary.values.raman);
+  return {
+    title:'Biochar Arabia Batch Decision Record',
+    generatedAt,
+    model:'Provisional literature-threshold CDI — in validation.',
+    status:'Development/validation screening aid; not a certification, registry approval, credit issuance, or permanence determination.',
+    batchMetadata:{batchId:lastCalculation.batchId||null,operator:primary.operator||null,measurementDate:primary.date||null},
+    evidenceStatus:{chemistry:lastCalculation.decision.status==='scored'?'Full CDI':'Preliminary Screen',raman:ramanValues.length?'Measured':'Required · not entered',overall:lastCalculation.decision.evidenceStatus},
+    screening:updateScreeningAssessment(),
+    rawMeasurements:lastCalculation.measurements.map((measurement,index)=>({observation:index===0?'Primary':measurement.isRamanRepeat?'Raman replicate':'Replicate',operator:measurement.operator||null,date:measurement.date||null,values:measurement.values})),
+    proxyScores:Object.fromEntries(Object.keys(CDI_PROXY_META).map(key=>[key,mapProxyScore(key,primary.values[key])])),
+    cdi:lastCalculation.decision.status==='scored'?{score:lastCalculation.decision.score,grade:lastCalculation.decision.grade,weights:lastCalculation.weights}:null,
+    raman:{status:ramanValues.length?'Assessed · provisional threshold':'Not assessed',triggerReason:document.getElementById('ramanTriggerReason').textContent,primaryIdIg:readNumber(document.getElementById('ramanPrimaryRatio'))??primary.values.raman,dBandPosition:readNumber(document.getElementById('ramanDPosition')),gBandPosition:readNumber(document.getElementById('ramanGPosition')),dBandWidth:readNumber(document.getElementById('ramanDWidth')),gBandWidth:readNumber(document.getElementById('ramanGWidth')),replicateIdIg:ramanValues.slice(1),score:mapProxyScore('raman',readNumber(document.getElementById('ramanPrimaryRatio'))??primary.values.raman),repeatability,notes:document.getElementById('ramanNotes').value.trim()||null,permanenceNote:'Raman descriptors are supporting structural evidence and are not direct proof or a direct measurement of permanence.'},
+    qaQc:{status:lastCalculation.qa.confidence,summary:lastCalculation.qa.detail,metrics:lastCalculation.qa.metrics.map(metric=>({name:metric.name,value:metric.value,threshold:metric.threshold,status:metric.status,detail:metric.detail}))},
+    decision:{type:lastCalculation.decision.decision,rationale:lastCalculation.decision.rationale,nextActionDetail:document.getElementById('decisionActionDetail').textContent}
+  };
+}
+function saveBatchRecord({download=false}={}){
+  const currentBatchId=document.getElementById('calcBatchId').value.trim();
+  if(!currentBatchId){
+    document.getElementById('batchRecordStatus').textContent='Enter a Batch ID before generating or updating its record.';
+    document.getElementById('calcBatchId').focus();
+    return null;
+  }
+  const generatedAt=new Date().toISOString();
+  const record=buildBatchRecord(generatedAt);
+  const historyEntry={generatedAt,batchId:record.batchMetadata.batchId,evidenceStatus:record.evidenceStatus.overall,screeningStatus:record.screening.status,nextAction:record.screening.status==='Normal'&&record.cdi?record.decision.type:record.screening.nextAction,qaStatus:record.qaQc.status,cdiDisplay:record.cdi?`${record.cdi.score.toFixed(1)} · Grade ${record.cdi.grade}`:'Preliminary Screen',record};
+  try{
+    const history=loadBatchHistory();
+    const batchId=historyEntry.batchId;
+    const existingIndex=batchId?history.findIndex(item=>item.batchId===batchId):-1;
+    if(existingIndex>=0)history[existingIndex]=historyEntry;
+    else history.push(historyEntry);
+    localStorage.setItem(BATCH_HISTORY_KEY,JSON.stringify(history.slice(-50)));
+    renderBatchHistory();
+    document.getElementById('batchRecordStatus').textContent=`Batch ${batchId} record saved to local history.`;
+  }catch{
+    document.getElementById('batchRecordStatus').textContent='Record generated; browser storage is unavailable, so it was not added to history.';
+  }
+  if(download){
+    const blob=new Blob([JSON.stringify(record,null,2)],{type:'application/json'});
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement('a');
+    const safeId=(record.batchMetadata.batchId||'batch').replace(/[^a-z0-9_-]+/gi,'-').replace(/^-|-$/g,'');
+    link.href=url;link.download=`biochar-arabia-${safeId||'batch'}-record.json`;
+    document.body.append(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    document.getElementById('batchRecordStatus').textContent=`Batch ${batchId} record generated and downloaded.`;
+  }
+  return record;
+}
+function makeReplicate(){
+  replicateCount+=1;
+  const card=document.createElement('div');
+  card.className='replicate-card';
+  card.innerHTML=`<div class="replicate-top"><strong>Replicate ${replicateCount}</strong><button type="button" class="text-button" data-remove-replicate>Remove</button></div><div class="calc-grid">${Object.entries(CDI_PROXY_META).map(([key,meta])=>`<div class="calc-field"><label>Repeat · ${meta.label}${meta.unit==='%'?' (%)':''}</label><input data-proxy="${key}" type="number" min="0" ${meta.unit==='%'?'max="100"':''} step="any" inputmode="decimal" placeholder="Measured value"></div>`).join('')}<div class="calc-field"><label>Operator</label><input data-meta="operator" type="text" maxlength="80" placeholder="Name or operator ID" autocomplete="off"></div><div class="calc-field"><label>Measurement date</label><input data-meta="date" type="date" value="${localDateValue()}"></div></div>`;
+  calcReplicates.append(card);
+  card.querySelectorAll('input').forEach(input=>input.addEventListener('input',updateCalculator));
+  updateCalculator();
+}
+document.getElementById('addReplicate').addEventListener('click',makeReplicate);
+calcReplicates.addEventListener('click',event=>{
+  const remove=event.target.closest('[data-remove-replicate]');
+  if(remove){remove.closest('.replicate-card').remove();updateCalculator();}
+});
+calcInputIds.filter(id=>id!=='calcBatchId'&&id!=='calcRaman').forEach(id=>document.getElementById(id).addEventListener('input',updateCalculator));
+function clearRamanAssessmentInputs(){
+  ['ramanPrimaryRatio','ramanDPosition','ramanGPosition','ramanDWidth','ramanGWidth','ramanNotes','calcRaman'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('ramanReplicates').replaceChildren();
+  activeRamanTriggerReason='';
+  document.getElementById('ramanUpdateStatus').textContent='Raman entries cleared because the active Batch ID changed.';
+}
+document.getElementById('calcBatchId').addEventListener('input',()=>{
+  const currentBatchId=document.getElementById('calcBatchId').value.trim();
+  if(currentBatchId!==linkedRamanBatchId){
+    const hasRamanEntries=[...document.querySelectorAll('#ramanAssessment input,#ramanAssessment textarea')].some(input=>input.value.trim()!=='');
+    if(hasRamanEntries||activeRamanTriggerReason)clearRamanAssessmentInputs();
+    linkedRamanBatchId=currentBatchId;
+  }
+  if(currentBatchId!==linkedScreeningBatchId){
+    const hasScreeningInputs=smartScreeningState.normalFile||smartScreeningState.uvFile||['samplePreparation','screeningReagent','screeningOperator','screeningNotes'].some(id=>document.getElementById(id).value.trim()!=='');
+    if(hasScreeningInputs)clearScreeningInputs();
+    linkedScreeningBatchId=currentBatchId;
+  }
+  updateCalculator();
+  updateScreeningAssessment();
+});
+document.getElementById('calcRaman').addEventListener('input',event=>{
+  const fingerprintInput=document.getElementById('ramanPrimaryRatio');
+  if(fingerprintInput.value!==event.target.value)fingerprintInput.value=event.target.value;
+  updateCalculator();
+});
+document.getElementById('downloadBatchRecord').addEventListener('click',()=>saveBatchRecord({download:true}));
+document.getElementById('openRamanAssessment').addEventListener('click',()=>{
+  linkedRamanBatchId=document.getElementById('calcBatchId').value.trim();
+  const ramanInput=document.getElementById('ramanPrimaryRatio');
+  if(!ramanInput.value&&document.getElementById('calcRaman').value)ramanInput.value=document.getElementById('calcRaman').value;
+  document.getElementById('ramanAssessment').open=true;
+  updateCalculator();
+  document.getElementById('ramanAssessment').scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
+  ramanInput.focus({preventScroll:true});
+});
+document.getElementById('ramanPrimaryRatio').addEventListener('input',event=>{
+  document.getElementById('calcRaman').value=event.target.value;
+  updateCalculator();
+});
+['ramanDPosition','ramanGPosition','ramanDWidth','ramanGWidth','ramanNotes'].forEach(id=>document.getElementById(id).addEventListener('input',()=>updateRamanAssessment()));
+document.getElementById('addRamanReplicate').addEventListener('click',()=>{
+  const row=document.createElement('div');
+  row.className='raman-replicate';
+  const field=document.createElement('div');field.className='calc-field';
+  const label=document.createElement('label');label.textContent=`Replicate ID/IG ${document.querySelectorAll('[data-raman-replicate]').length+1}`;
+  const input=document.createElement('input');input.type='number';input.min='0';input.step='any';input.inputMode='decimal';input.placeholder='Measured ratio';input.setAttribute('data-raman-replicate','');
+  field.append(label,input);
+  const remove=document.createElement('button');remove.type='button';remove.className='text-button';remove.textContent='Remove';remove.setAttribute('aria-label','Remove Raman replicate');
+  remove.addEventListener('click',()=>{row.remove();updateCalculator();});
+  row.append(field,remove);
+  document.getElementById('ramanReplicates').append(row);
+  input.addEventListener('input',updateCalculator);
+  input.focus();
+  updateCalculator();
+});
+document.getElementById('viewFingerprintDetails').addEventListener('click',()=>{
+  const details=document.getElementById('fingerprintDetails');
+  details.open=true;
+  details.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
+});
+document.getElementById('updateBatchRecord').addEventListener('click',()=>{
+  const fingerprintRatio=readNumber(document.getElementById('ramanPrimaryRatio'));
+  if(fingerprintRatio!==null)document.getElementById('calcRaman').value=String(fingerprintRatio);
+  const record=saveBatchRecord();
+  if(record)document.getElementById('ramanUpdateStatus').textContent=`Batch ${record.batchMetadata.batchId} record updated in Batch History.`;
+});
+function addReportElement(parent,tag,text,className){
+  const node=document.createElement(tag);
+  if(text!==undefined&&text!==null)node.textContent=String(text);
+  if(className)node.className=className;
+  parent.append(node);
+  return node;
+}
+function renderEvidenceReport(record){
+  const report=document.getElementById('evidenceReport');
+  report.replaceChildren();
+  addReportElement(report,'h1','Biochar Arabia · Raman Fingerprint Evidence');
+  addReportElement(report,'p',`Batch ${record.batchMetadata.batchId||'Unspecified'} · Generated ${new Date(record.generatedAt).toLocaleString()}`);
+  addReportElement(report,'p',record.model);
+  addReportElement(report,'h2','Batch decision');
+  const summary=report.appendChild(document.createElement('table'));
+  const rows=[['Chemistry screening',record.evidenceStatus.chemistry],['Raman status',record.raman.status],['Raman ID/IG',record.raman.primaryIdIg??'Not entered'],['Raman proxy score',record.raman.score??'Not assessed'],['Repeatability',record.raman.repeatability.status],['Full CDI',record.cdi?record.cdi.score.toFixed(1):'Preliminary Screen'],['Grade',record.cdi?.grade||'Not assessed'],['QA/QC status',record.qaQc.status],['Recommended next action',record.decision.type],['Reason',record.decision.rationale]];
+  rows.forEach(([key,value])=>{const row=summary.insertRow();row.insertCell().textContent=key;row.insertCell().textContent=typeof value==='object'?JSON.stringify(value):String(value);});
+  addReportElement(report,'h2','Raman details');
+  addReportElement(report,'p',`Trigger context: ${record.raman.triggerReason}`);
+  addReportElement(report,'p',`Replicates: ${record.raman.replicateIdIg.length?record.raman.replicateIdIg.join(', '):'None entered'}`);
+  addReportElement(report,'p',`Replicate mean: ${record.raman.repeatability.mean??'Not assessed'} · SD: ${record.raman.repeatability.sd??'Not assessed'} · CV: ${Number.isFinite(record.raman.repeatability.cv)?record.raman.repeatability.cv.toFixed(2)+'%':'Not assessed'}`);
+  addReportElement(report,'p',`D band: ${record.raman.dBandPosition??'—'} cm⁻¹ · G band: ${record.raman.gBandPosition??'—'} cm⁻¹ · D width: ${record.raman.dBandWidth??'—'} cm⁻¹ · G width: ${record.raman.gBandWidth??'—'} cm⁻¹`);
+  addReportElement(report,'p',`Notes: ${record.raman.notes||'None provided'}`);
+  addReportElement(report,'h2','QA/QC results');
+  record.qaQc.metrics.forEach(metric=>addReportElement(report,'p',`${metric.name}: ${metric.status==='not-assessed'?'Not assessed':metric.status} · ${metric.detail}`));
+  addReportElement(report,'h2','Spray–Shine–Snap field screening');
+  addReportElement(report,'p',`Screening Status: ${record.screening.status} · ${record.screening.reason}`);
+  addReportElement(report,'p',`Sample preparation: ${record.screening.metadata.samplePreparation||'Not provided'} · Reagent/dose: ${record.screening.metadata.reagentDose||'Not provided'} · Operator: ${record.screening.metadata.operator||'Not provided'} · Date/time: ${record.screening.metadata.dateTime||'Not provided'}`);
+  addReportElement(report,'p',`Recommendation: ${record.screening.recommendation}`);
+  addReportElement(report,'p',`Image files: normal ${record.screening.normalFileName||'not provided'} · UV ${record.screening.uvFileName||'not provided'}`);
+  const screenImages=report.appendChild(document.createElement('div'));screenImages.className='screening-print-images';
+  for(const [label,file] of [['Normal light',smartScreeningState.normalFile],['365 nm UV',smartScreeningState.uvFile]]){
+    if(file){const figure=screenImages.appendChild(document.createElement('figure'));const image=figure.appendChild(document.createElement('img'));image.src=smartScreeningState[ label==='Normal light'?'normalUrl':'uvUrl'];image.alt=`${label} screening image`;addReportElement(figure,'figcaption',label);}
+  }
+  const featureTable=report.appendChild(document.createElement('table'));
+  [['Feature','Normal-light image','365 nm UV image'],['Mean brightness',record.screening.normalFeatures?`${record.screening.normalFeatures.brightness.toFixed(1)}%`:'Not assessed',record.screening.uvFeatures?`${record.screening.uvFeatures.brightness.toFixed(1)}%`:'Not assessed'],['Mean color saturation',record.screening.normalFeatures?`${record.screening.normalFeatures.colorResponse.toFixed(1)}%`:'Not assessed','Not interpreted'],['Mean RGB response',record.screening.normalFeatures?`${Math.round(record.screening.normalFeatures.meanRgb.r)}/${Math.round(record.screening.normalFeatures.meanRgb.g)}/${Math.round(record.screening.normalFeatures.meanRgb.b)}`:'Not assessed','Not interpreted'],['Blue/green-dominant image-pixel proxy','Not interpreted',record.screening.uvFeatures?`${record.screening.uvFeatures.blueGreenDominantPercent.toFixed(1)}%`:'Not assessed'],['UV spatial distribution variability','Not interpreted',record.screening.uvFeatures&&record.screening.uvFeatures.fluorescenceTileCv!==null?`${record.screening.uvFeatures.fluorescenceTileCv.toFixed(1)}% tile CV`:'Not assessed'],['Texture gradient proxy',record.screening.normalFeatures?`${record.screening.normalFeatures.textureGradient.toFixed(1)}%`:'Not assessed',record.screening.uvFeatures?`${record.screening.uvFeatures.textureGradient.toFixed(1)}%`:'Not assessed']].forEach((cells,index)=>{const row=featureTable.insertRow();cells.forEach(value=>{const cell=row.insertCell();cell.textContent=value;if(index===0){const header=document.createElement('strong');header.textContent=value;cell.replaceChildren(header);}});});
+  addReportElement(report,'p',`Notes: ${record.screening.metadata.notes||'None provided'}`);
+  addReportElement(report,'p','Field image screening only. These image-derived features are uncalibrated descriptive proxies. They do not directly measure Fixed Carbon, H/C, O/C, CDI, permanence, or carbon removal. Warning or Review recommends further measurement/review, not automatic rejection.','report-note');
+  addReportElement(report,'p',record.raman.permanenceNote,'report-note');
+  addReportElement(report,'p',record.status,'report-note');
+}
+document.getElementById('normalSampleImage').addEventListener('change',event=>handleScreeningImage('normal',event.target.files?.[0]||null));
+document.getElementById('uvSampleImage').addEventListener('change',event=>handleScreeningImage('uv',event.target.files?.[0]||null));
+['samplePreparation','screeningReagent','screeningOperator','screeningDateTime','screeningNotes'].forEach(id=>document.getElementById(id).addEventListener('input',updateScreeningAssessment));
+function clearScreeningInputs(){
+  screeningAnalysisVersion.normal+=1;screeningAnalysisVersion.uv+=1;
+  for(const kind of ['normal','uv']){
+    const urlKey=kind==='normal'?'normalUrl':'uvUrl';
+    if(smartScreeningState[urlKey])URL.revokeObjectURL(smartScreeningState[urlKey]);
+    smartScreeningState[urlKey]='';
+    smartScreeningState[kind==='normal'?'normalFile':'uvFile']=null;
+    smartScreeningState[kind==='normal'?'normalFeatures':'uvFeatures']=null;
+    const input=document.getElementById(kind==='normal'?'normalSampleImage':'uvSampleImage');input.value='';
+    const image=document.getElementById(kind==='normal'?'normalImagePreview':'uvImagePreview');image.removeAttribute('src');
+    image.alt=`${kind==='normal'?'Normal-light':'365 nanometre UV'} sample preview; no image selected`;
+    document.getElementById(kind==='normal'?'normalImageCaption':'uvImageCaption').textContent=`${kind==='normal'?'Normal light':'365 nm UV'} · image not selected`;
+  }
+  ['samplePreparation','screeningReagent','screeningOperator','screeningNotes'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('screeningDateTime').value=currentDateTimeLocal();
+  document.getElementById('screeningUpdateStatus').textContent='Screening inputs cleared because the active Batch ID changed.';
+}
+document.getElementById('updateScreeningRecord').addEventListener('click',async()=>{
+  await screeningAnalysisPromise;
+  const record=saveBatchRecord();
+  if(record)document.getElementById('screeningUpdateStatus').textContent=`${record.screening.status} screening record saved to Batch ${record.batchMetadata.batchId}.`;
+});
+document.getElementById('requestScreeningReview').addEventListener('click',()=>{
+  const raman=document.getElementById('ramanAssessment');
+  raman.open=true;
+  raman.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
+});
+const screeningPdfButton=document.getElementById('generateEvidencePdf');
+screeningPdfButton.addEventListener('click',async()=>{
+  await screeningAnalysisPromise;
+  const record=saveBatchRecord();
+  if(!record)return;
+  renderEvidenceReport(record);
+  await Promise.all([...document.querySelectorAll('#evidenceReport .screening-print-images img')].map(image=>image.decode().catch(()=>{})));
+  const previousTitle=document.title;
+  const safeBatch=(record.batchMetadata.batchId||'batch').replace(/[^a-z0-9_-]+/gi,'-');
+  document.title=`Biochar-Arabia-${safeBatch}-Evidence`;
+  window.print();
+  document.title=previousTitle;
+});
+document.getElementById('clearBatchHistory').addEventListener('click',()=>{
+  try{localStorage.removeItem(BATCH_HISTORY_KEY);}catch{}
+  renderBatchHistory();
+});
+document.querySelectorAll('[data-calc-step]').forEach(button=>button.addEventListener('click',()=>{
+  document.querySelectorAll('[data-calc-step]').forEach(step=>step.removeAttribute('aria-current'));
+  button.setAttribute('aria-current','step');
+  const target=button.dataset.calcStep==='input'?'calcInputPanel':button.dataset.calcStep==='qaqc'?'calcQaPanel':'calcDecisionPanel';
+  document.getElementById(target).scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
+}));
+updateCalculator();
+renderBatchHistory();
+updateScreeningAssessment();
+
+</script>
+</body>
+</html>
