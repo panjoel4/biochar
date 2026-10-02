@@ -457,12 +457,35 @@
 
   function downloadCsv() {
     if (!state.latestResult) return;
-    const headers = ["sampleId", "source", "uvWavelength", "threshold", "meanIntensity", "medianIntensity", "brightAreaFraction", "hotspotCount", "hotspotDensity", "heterogeneity", "entropy", "radialUniformity", "timestamp"];
-    const row = headers.map((key) => {
-      const value = state.latestResult[key];
-      return typeof value === "string" ? `"${value.replace(/"/g, '""')}"` : value ?? "";
-    }).join(",");
-    const csv = `${headers.join(",\n")}\n${row}\n`;
+
+    const toCsvValue = (value) => {
+      if (value === null || value === undefined) return "";
+      const stringValue = String(value);
+      if (/[",\n]/.test(stringValue)) {
+        return `"${stringValue.replace(/"/g, '""')}"`;
+      }
+      return stringValue;
+    };
+
+    const headers = [
+      "sampleId",
+      "source",
+      "uvWavelength",
+      "threshold",
+      "meanIntensity",
+      "medianIntensity",
+      "brightAreaFraction",
+      "hotspotCount",
+      "hotspotDensity",
+      "heterogeneity",
+      "entropy",
+      "radialUniformity",
+      "timestamp"
+    ];
+
+    const row = headers.map((key) => toCsvValue(state.latestResult[key])).join(",");
+    const csv = [headers.join(","), row].join("\r\n");
+
     saveAsBlob(csv, `${(ui.sampleId.value || "biochar-sample").replace(/\s+/g, "-")}.csv`, "text/csv;charset=utf-8;");
   }
 
