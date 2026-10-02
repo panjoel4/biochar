@@ -587,7 +587,7 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
         <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"/><path d="m4.4 7.7 7.6 4.4 7.6-4.4M12 12.1V21"/><circle cx="9" cy="7" r=".7" fill="currentColor" stroke="none"/><circle cx="14.5" cy="8.5" r=".7" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15" r=".7" fill="currentColor" stroke="none"/></svg></div><div><strong>Biochar Batch</strong><span>Identity + process context</span></div></div>
         <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5.2 8.2A2.5 2.5 0 0 0 6.9 21h10.2a2.5 2.5 0 0 0 2.1-3.8L14 9V3"/><path d="M7.8 15h8.4M9.5 12.2h5"/><circle cx="12" cy="17.7" r=".7" fill="currentColor" stroke="none"/></svg></div><div><strong>Chemistry</strong><span>Structured evidence inputs</span></div></div>
         <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5h10a2 2 0 0 1 2 2V21H5V6.5a2 2 0 0 1 2-2Z"/><path d="M9 4.5V3h6v1.5M8.5 10h4M8.5 14h3"/><path d="m13.5 16 2 2 4-4"/></svg></div><div><strong>QA/QC</strong><span>Completeness + uncertainty</span></div></div>
-        <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h3l2.2-6 4.1 11 2.5-8 1.8 3H21"/><path d="M4 5.5h4M16 18.5h4" opacity=".65"/></svg></div><div><strong>Selective Raman</strong><span>Escalate when needed</span></div></div>
+        <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h3l2.2-6 4.1 11 2.5-8 1.8 3H21"/><path d="M4 5.5h4M16 18.5h4" opacity=".65"/></svg></div><div><strong>Carbon Quantum Dot Signatures</strong><span>Escalate when needed</span></div></div>
         <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 5h3a4 4 0 0 1 4 4v5a4 4 0 0 0 4 4M14 9h3M14 14h3"/><path d="m16 7 2 2-2 2M16 12l2 2-2 2"/></svg></div><div><strong>MRV Decision</strong><span>Clear next action</span></div></div>
         <div class="node"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4V20H6z"/><path d="M14 3.5v4h4M9 12h5M9 15h3"/><circle cx="17.5" cy="17.5" r="3.2"/><path d="m16 17.5 1 1 2-2"/></svg></div><div><strong>Verification-Ready Evidence</strong><span>Traceable batch record</span></div></div>
       </div>
@@ -635,7 +635,7 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
         <div class="flow-item"><div class="dot">01</div><strong>Biochar Batch</strong></div><div class="flow-arrow">→</div>
         <div class="flow-item"><div class="dot">02</div><strong>Chemistry</strong></div><div class="flow-arrow">→</div>
         <div class="flow-item"><div class="dot">03</div><strong>QA/QC</strong></div><div class="flow-arrow">→</div>
-        <div class="flow-item"><div class="dot">04</div><strong>Selective Raman</strong></div><div class="flow-arrow">→</div>
+        <div class="flow-item"><div class="dot">04</div><strong>Carbon Quantum Dot Signatures</strong></div><div class="flow-arrow">→</div>
         <div class="flow-item"><div class="dot">05</div><strong>MRV Decision</strong></div><div class="flow-arrow">→</div>
         <div class="flow-item"><div class="dot">06</div><strong>Evidence Package</strong></div>
       </div>
@@ -674,8 +674,8 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
 
       <article class="science-card" tabindex="0" role="button" aria-pressed="false" data-layer="raman">
         <div class="index">03</div>
-        <h3>Structural Fingerprint</h3>
-        <p>Raman descriptors provide selective structural evidence for borderline, unusual or changed-process batches.</p>
+        <h3>Photoluminescence Fingerprint</h3>
+        <p>CQD emission wavelength, spectral shape and intensity provide complementary optical evidence of biochar variability.</p>
         <div class="card-action">See Fingerprint <span>→</span></div>
       </article>
     </div>
@@ -784,7 +784,7 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
               <div class="decision-customer-field"><span>Why</span><p id="decisionReason">Enter measured values to see what drives the result.</p></div>
               <div class="decision-customer-field"><span>Recommended next action</span><strong id="decisionAction">Enter measured values</strong><p id="decisionActionDetail">No final score is shown until required evidence is available.</p></div>
             </div>
-            <button class="raman-trigger" id="openRamanAssessment" type="button">Open Raman Fingerprint Assessment</button>
+            <button class="raman-trigger" id="openRamanAssessment" type="button">Open Photoluminescence Fingerprint Assessment</button>
           </div>
         </div>
         <div class="calc-details">
@@ -804,7 +804,7 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
       </div>
 
       <details class="raman-panel" id="ramanAssessment" aria-labelledby="ramanAssessmentTitle">
-        <summary id="ramanAssessmentTitle">Raman Fingerprint · selective structural evidence</summary>
+        <summary id="ramanAssessmentTitle">Photoluminescence Fingerprint · selective structural evidence</summary>
         <div class="raman-panel-body">
           <div class="raman-meta"><span class="raman-chip" id="ramanLinkedBatch">Batch: not linked</span><span class="raman-chip" id="ramanTriggerReason">Trigger: add batch measurements to assess</span><span class="raman-chip">Selective assessment · in validation</span></div>
           <p class="small">Enter a measured primary ID/IG and any replicate ID/IG readings. D/G positions and widths are optional contextual descriptors; they do not directly prove permanence.</p>
@@ -918,7 +918,7 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);color:var(--muted);f
         </button>
         <span class="journey-arrow">→</span>
         <button class="journey-step" id="journey-step-raman" type="button" aria-pressed="false" data-step="raman">
-          <span class="journey-number">04</span><span>Raman Fingerprint</span>
+          <span class="journey-number">04</span><span>Photoluminescence Fingerprint</span>
         </button>
         <span class="journey-arrow">→</span>
         <button class="journey-step" id="journey-step-decision" type="button" aria-pressed="false" data-step="decision">
@@ -1071,13 +1071,13 @@ const layerData={
     next:'raman'
   },
   raman:{
-    label:'Layer 03 · Selective confidence',
-    title:'Use structural evidence when uncertainty demands it.',
-    text:'Raman is a selective confidence layer for borderline, unusual or changed-process batches rather than a universal permanence test.',
-    points:['D/G bands and structural descriptors','Compare current batch with relevant references','Trigger only when stronger evidence is justified'],
+    label:'Layer 03 · Optical fingerprint',
+    title:'Make hidden biochar variability visible.',
+    text:'Biochar-derived CQDs exhibit feedstock-dependent photoluminescence signatures. These optical differences provide a complementary screening fingerprint for comparing batches and identifying unusual material behavior.',
+    points:['Distinct emission wavelength and spectral profiles','Compare current samples with relevant reference signatures','Flag unusual optical behavior for further investigation'],
     signals:[
-      ['D + G Bands','Structural descriptors','READ','ok'],
-      ['ID/IG + Band Shape','Contextual fingerprint','COMPARE','ok'],
+      ['Emission Spectrum','λmax + spectral shape','READ','ok'],
+      ['CQD Signature','Intensity + wavelength shift','COMPARE','ok'],
       ['Batch Comparison','Reference consistency','CHECK','warn'],
       ['MRV Action','Confirm · Repeat · Review','GUIDED','ok']
     ],
@@ -1124,7 +1124,7 @@ const journeyData={
   screen:{icon:'◎',label:'01 · Field Screening',title:'Capture the batch before deeper testing.',text:'Standardized field images and batch metadata create an early record and help flag unusual samples for further assessment.',status:'EARLY SCREEN',layer:'screen'},
   chemistry:{icon:'Σ',label:'02 · Chemistry + CDI',title:'Turn chemistry into a transparent screening view.',text:'Selected chemistry proxies are organized into CDI so the batch can be assessed consistently without hiding the underlying evidence.',status:'ROUTINE ASSESSMENT',layer:'cdi'},
   qaqc:{icon:'✓',label:'03 · QA/QC',title:'Keep data quality visible.',text:'Completeness, repeatability and uncertainty are checked separately so a strong score cannot mask weak or inconsistent evidence.',status:'QUALITY CHECK',layer:'cdi'},
-  raman:{icon:'≈',label:'04 · Raman Fingerprint',title:'Add structural evidence selectively.',text:'Raman descriptors provide a structural fingerprint when a batch is borderline, unusual, changed-process, or needs stronger traceability.',status:'CONFIDENCE LAYER',layer:'raman'},
+  raman:{icon:'≈',label:'04 · Photoluminescence Fingerprint',title:'Add structural evidence selectively.',text:'Raman descriptors provide a structural fingerprint when a batch is borderline, unusual, changed-process, or needs stronger traceability.',status:'CONFIDENCE LAYER',layer:'raman'},
   decision:{icon:'↳',label:'05 · MRV Decision',title:'Translate evidence into the next action.',text:'The combined evidence supports a clear pathway such as proceed, repeat measurement, request confirmation, or expert review.',status:'DECISION SUPPORT',layer:null},
   record:{icon:'◇',label:'06 · Verification-Ready Record',title:'Compile one traceable batch record.',text:'Batch identity, chemistry, QA/QC, structural evidence and decision rationale are organized for downstream independent review.',status:'READY FOR REVIEW',layer:null}
 };
